@@ -18,7 +18,9 @@ This section considers a Simple Random Walk on ${1,...,L}$ with probabilities $p
 
 Different boundary conditions are considered.
 
-\subsection{Case 1 - Periodic}
+\subsection{Part A}
+
+\subsubsection{Case 1 - Periodic}
 
 Periodic boundary conditions, so $p(0,L) = q$ and $p(L,0) = p$
 
@@ -44,7 +46,7 @@ for all $p \in (0,1)$
 The stationary distribution is reversible only for the case $p=q=\frac{1}{2}$.
 
 
-\subsection{Case 2 - Closed}
+\subsubsection{Case 2 - Closed}
 
 Transition matrix:
 
@@ -114,7 +116,7 @@ $P = \begin{bmatrix}
     0 & 0 & 0 & \dots & 0 & 1
 \end{bmatrix}$
 
-The process is not irreducible, as no other states can be reached from satte 1 or state L. 
+The process is not irreducible, as no other states can be reached from state 1 or state L. 
 
 The (normalised) stationary distributions are
 
@@ -126,8 +128,6 @@ $\pi_3 = [a,0,0,..,0,1-a] \text{ where } a \in [0,1]$
 
 
 
-
-
 These distributions are reversible, looking at the detailed balance conditions:
 
 $\pi(x)p(x,y) = \pi(y)p(y,x)$ 
@@ -135,47 +135,60 @@ $\pi(x)p(x,y) = \pi(y)p(y,x)$
 All terms for all equations are zero, therefore it is reversible.
 
 
-Stefan's tips:
-if $p=q , h_k = a + bk$
-
-if $p =/= q, h_k = a(p/q)^k + b$
+\bigskip
 
 
+
+
+The absorption probability in site L is 
 
 $h_k^L = P(X_n = L \text{ for some } n \geq 0|X_0 = k)$
-
-is the absorption probability in site L. 
 
 
 $h_k^L = P(X_n = L \text{ for some } n \geq 0|X_0 = k)$
 
 $h_k^L = P(X_n = L | X_0 = k)$
 
-Consider k+1, k-1
-
-
-By law of total probability:
+Considering k+1, k-1, and by law of total probability:
 
 $h_{k}^L = P(X_n = L | X_1 = k+1, X_0 = k) * p + P(X_n = L | X_1 = k-1, X_0 = k) * q $
 
-Markov property:
+Using the Markov property:
 
 $h_{k}^L = P(X_n = L | X_1 = k+1) \times p + P(X_n = L | X_1 = k-1) \times q $
 
+\bigskip
+
 $h_{k}^L = h_{k+1}^L \times p + h_{k-1}^L \times q $
 
-And boundary conditions:
+And the boundary conditions are:
 
 $h_{1}^L = 0 \text{ and } h_{L}^L = 1$
 
+\bigskip
 
-ansatz:  $h_{k}^L = \lambda^k $
+If $p=q$ then this recursion relation becomes 
+
+$h_{k}^L = \dfrac{h_{k+1}^L + h_{k-1}^L}{2} $
+
+This is linear interpolation between the two surrounding states, so the absorption probability is linear in k. Consdiering the boundary conditions, the solution is:
+
+$h_{k}^L = \frac{k-1}{L-1}$
+
+\bigskip
+
+If $p\neq q$, we can solve the recursion realtion by considering the ansatz:
+
+
+$h_{k}^L = \lambda^k $
 
 $\lambda = p \lambda^2 + q$
 
 This has roots:
 
 $\lambda_1 = 1 \text{ and } \lambda_2 = q/p$
+
+
 
 The general solution is of the form:
 
@@ -184,13 +197,24 @@ $h_k^L = a\lambda_1 + b\lambda_2$
 $h_k^L = a + b(\frac{q}{p})^k$ 
 
 
-Looking at the boundary conditions, for p not equal to q:
+Looking at the boundary conditions:
 
 $h_1^L = 0 = a + b(\frac{q}{p})$
 
-$H_L^L = 1 = a + b(\frac{q}{p})^L$
+$h_L^L = 1 = a + b(\frac{q}{p})^L$
 
-SUbtracting the first eqaution from the first equation:
+Subtracting the first equation from the second equation, and solving for b:
+
+$b = \dfrac{1}{(\frac{q}{p})^{L}-\frac{q}{p}})$
+
+$a = \dfrac{-1}{(\frac{q}{p})^{L-1}-1}$
+
+
+\subsection{Part C - simulations}
+
+A simple random walk with L=10 and closed boundary conditions was simulated 500 times, with a $p=0.6$.
+
+
 
 
 \end{document}
