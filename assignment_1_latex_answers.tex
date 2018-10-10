@@ -2,6 +2,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 
+\usepackage{graphicx}
+
+\graphicspath {}
+
+
 \title{Networks and Random Processes Assignment 1}
 \author{Charlie Pilgrim - 1864704}
 \date{October 2018}
@@ -12,6 +17,7 @@
 
 
 \section{Question 1}
+
 
 
 This section considers a Simple Random Walk on ${1,...,L}$ with probabilities $p \in [0,1]$ and $q = 1-p$ to jump right and left respectively. 
@@ -212,7 +218,11 @@ $a = \dfrac{-1}{(\frac{q}{p})^{L-1}-1}$
 
 \subsection{Part C - simulations}
 
-A simple random walk with L=10 and closed boundary conditions was simulated 500 times, with a $p=0.6$.
+A simple random walk with L=10 and closed boundary conditions was simulated 500 times, with a $p=0.6$ and starting at x=1 at t=0.
+
+
+\includegraphics[scale=1]{10_steps_a.png} 
+\includegraphics[scale=1]{100_steps_a.png} 
 
 
 
