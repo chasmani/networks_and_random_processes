@@ -44,11 +44,9 @@ for all $p \in (0,1)$
 The stationary distribution is reversible only for the case $p=q=\frac{1}{2}$.
 
 
-Case 2 - Closed
+\subsection{Case 2 - Closed}
 
 Transition matrix:
-
-
 
 $P = \begin{bmatrix}
     q & p & 0 & \dots  & 0 & 0 \\
@@ -65,19 +63,134 @@ If $q = 1$, there is an absorbing state at 1, and the stationary dsitribution is
 
 If $p = q =\frac{1}{2}$, the process is irreducible, as every state can, eventually, be reached from every other state. There is a finite state space and so there is onle 1 stationary distribution. The sum of all columns equal 1, so there is a constant left eigenvector, and so the stationary distribution is $\pi = (1/L, 1/L,..., 1/L)$. This stationary distribution is reversible.
 
-If $p,q \neq [0,1/2,1]$, then the process is irreducible, and it has a finite state space so there is only 1 stationary distribution. 
+If $p,q \neq [0,1/2,1]$, then the process is irreducible, and it has a finite state space so there is only 1 stationary distribution. Looing at the detailed balance equations, we can find a recurrence relation of the form:
+
+
+
+$\pi_{x-1} p= \pi_x p \text{ over } x = \{2,3,..., L-1\}$
+
+
+$ \pi_x = \pi_{x-1} \frac{p}{q} $
+
+By induction, this suggests a solution like
+
+$\pi_x = \pi_1 (\frac{p}{q})^{x-1}$
+
+This is a reversible distribution, and so must also be stationary. As the process is ergodic, this is the unique stationary distrubution.
+
+We can check this distribution is staionary for a closed simple random walk with 4 states
+
+ $\begin{bmatrix}
+    \pi_1 \\
+    \pi_1\frac{p}{q} \\
+    \pi_1(\frac{p}{q})^2 \\
+    \pi_1(\frac{p}{q})^3 
+\end{bmatrix}
+\begin{bmatrix}
+    q & p & 0 & 0 \\
+    q & 0 & p & 0\\
+    0 & q & 0 & p\\
+    0 & 0 & q & p
+\end{bmatrix} = 
+\begin{bmatrix}
+    \pi_1 \\
+    \pi_1\frac{p}{q} \\
+    \pi_1(\frac{p}{q})^2 \\
+    \pi_1(\frac{p}{q})^3 
+\end{bmatrix}$
+
+We also need to normalise the distribution, so the stationary distribution will be
+
+$\pi_x = \dfrac{\pi_1 (\frac{p}{q})^{x-1}}{\sum_i^L{\pi_i}}$
+
+\subsection{Part B - Absorbing}
+
+$P = \begin{bmatrix}
+    1 & 0 & 0 & \dots  & 0 & 0 \\
+    q & 0 & p & \dots  & 0 & 0\\
+    0 & q & 0 & \dots  & 0 & 0\\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & \dots & 0 & p \\
+    0 & 0 & 0 & \dots & 0 & 1
+\end{bmatrix}$
+
+The process is not irreducible, as no other states can be reached from satte 1 or state L. 
+
+The (normalised) stationary distributions are
+
+$\pi_1 = [1,0,0,...,0]$
+
+$\pi_2 = [0,0,0,...,1]$
+
+$\pi_3 = [a,0,0,..,0,1-a] \text{ where } a \in [0,1]$
 
 
 
 
-Question -> does stationary dsitribution need to be normalised? - Yes.
-Question -> if sum of all columns is 1, is constant vector a prob distribution? - Yes. Left eigenvector is constant.
-Question -> How to work out general case for closed SRW - done in lecture, in workbook. Method 1 is through writing recursion realtions. Often easier to chekc for detailed balance first, and to write a simpler recursion relation based on that. 
 
-For p not equal to q, solution will be reversible.
+These distributions are reversible, looking at the detailed balance conditions:
+
+$\pi(x)p(x,y) = \pi(y)p(y,x)$ 
+
+All terms for all equations are zero, therefore it is reversible.
 
 
-Hello
+Stefan's tips:
+if $p=q , h_k = a + bk$
+
+if $p =/= q, h_k = a(p/q)^k + b$
+
+
+
+$h_k^L = P(X_n = L \text{ for some } n \geq 0|X_0 = k)$
+
+is the absorption probability in site L. 
+
+
+$h_k^L = P(X_n = L \text{ for some } n \geq 0|X_0 = k)$
+
+$h_k^L = P(X_n = L | X_0 = k)$
+
+Consider k+1, k-1
+
+
+By law of total probability:
+
+$h_{k}^L = P(X_n = L | X_1 = k+1, X_0 = k) * p + P(X_n = L | X_1 = k-1, X_0 = k) * q $
+
+Markov property:
+
+$h_{k}^L = P(X_n = L | X_1 = k+1) \times p + P(X_n = L | X_1 = k-1) \times q $
+
+$h_{k}^L = h_{k+1}^L \times p + h_{k-1}^L \times q $
+
+And boundary conditions:
+
+$h_{1}^L = 0 \text{ and } h_{L}^L = 1$
+
+
+ansatz:  $h_{k}^L = \lambda^k $
+
+$\lambda = p \lambda^2 + q$
+
+This has roots:
+
+$\lambda_1 = 1 \text{ and } \lambda_2 = q/p$
+
+The general solution is of the form:
+
+$h_k^L = a\lambda_1 + b\lambda_2$ 
+
+$h_k^L = a + b(\frac{q}{p})^k$ 
+
+
+Looking at the boundary conditions, for p not equal to q:
+
+$h_1^L = 0 = a + b(\frac{q}{p})$
+
+$H_L^L = 1 = a + b(\frac{q}{p})^L$
+
+SUbtracting the first eqaution from the first equation:
 
 
 \end{document}
