@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{Networks and Random Processes Assignment 1}
+\author{Charlie Pilgrim - 1864704}
+\date{October 2018}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Question 1}
+
+
+This section considers a Simple Random Walk on ${1,...,L}$ with probabilities $p \in [0,1]$ and $q = 1-p$ to jump right and left respectively. 
+
+Different boundary conditions are considered.
+
+\subsection{Case 1 - Periodic}
+
+Periodic boundary conditions, so $p(0,L) = q$ and $p(L,0) = p$
+
+The transition matrix is:
+
+$P = \begin{bmatrix}
+    0 & p & 0 & \dots  & 0 & q \\
+    q & 0 & p & \dots  & 0 & 0\\
+    0 & q & 0 & \dots  & 0 & 0\\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & \dots & 0 & p \\
+    p & 0 & 0 & \dots & q & 0
+\end{bmatrix}$
+
+The process is irreducible, i.e. every state can, eventually, reach every other state. And there is a finite state space, so it has 1 unique stationary distribution.
+
+The states can be laid out on a circle, and are symmetrical, so the stationary distribution is where all states have equal probabilities. 
+
+$\pi = (1/L, 1/L,..., 1/L)$
+
+for all $p \in (0,1)$ 
+
+The stationary distribution is reversible only for the case $p=q=\frac{1}{2}$.
+
+
+Case 2 - Closed
+
+Transition matrix:
+
+
+
+$P = \begin{bmatrix}
+    q & p & 0 & \dots  & 0 & 0 \\
+    q & 0 & p & \dots  & 0 & 0\\
+    0 & q & 0 & \dots  & 0 & 0\\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & \dots & 0 & p \\
+    0 & 0 & 0 & \dots & q & p
+\end{bmatrix}$
+
+If $p = 1$, there is an absorbing state at L, and the stationary dsitribution is $\pi = (0,0,...,0,1)$. This stationary distribution is reversible, all terms in the detailed balance equations are zero. This is not irreducible, as the walk can only move from $s_x$ to $s_{x+1}$. 
+
+If $q = 1$, there is an absorbing state at 1, and the stationary dsitribution is $\pi = (1,0,...,0,0)$. This stationary distribution is reversible, all terms in the detailed balance equations are zero. This is not irreducible, as the walk can only move from $s_x$ to $s_{x-1}$. 
+
+If $p = q =\frac{1}{2}$, the process is irreducible, as every state can, eventually, be reached from every other state. There is a finite state space and so there is onle 1 stationary distribution. The sum of all columns equal 1, so there is a constant left eigenvector, and so the stationary distribution is $\pi = (1/L, 1/L,..., 1/L)$. This stationary distribution is reversible.
+
+If $p,q \neq [0,1/2,1]$, then the process is irreducible, and it has a finite state space so there is only 1 stationary distribution. 
+
+
+
+
+Question -> does stationary dsitribution need to be normalised? - Yes.
+Question -> if sum of all columns is 1, is constant vector a prob distribution? - Yes. Left eigenvector is constant.
+Question -> How to work out general case for closed SRW - done in lecture, in workbook. Method 1 is through writing recursion realtions. Often easier to chekc for detailed balance first, and to write a simpler recursion relation based on that. 
+
+For p not equal to q, solution will be reversible.
+
+
+Hello
+
+
+\end{document}
