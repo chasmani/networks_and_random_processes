@@ -281,13 +281,41 @@ $Y_n$ is approxiamtely normally distributed with mean equal to $n\mu$, where $\m
 
 $Z_n$ has a recurive relationship given by
 
+$Z_{n+1} = exp(Y_n + X_{n+1})$
+
 $Z_{n+1} = Z_n exp(X_{n+1})$
 
-and 
-
-$Z_{n} = \sum\limits_{i=1}^n exp(X_i)$
-
 TO DO - Derive the pdf, look at Matt's link on whatsapp
+
+$Y$ is distributed normally, and
+
+$Y = ln(Z)$
+
+\bigskip
+
+Consider the cumulative distribution function:
+
+
+$F(z) = P(Z \leq z) = P(Y \leq ln(z))$
+
+$f_z(z) = \frac{d}{dz}F(z)$
+
+by the chain rule, this gives
+
+$f_z(z) = \dfrac{1}{z} \dfrac{1}{\sigma_y \sqrt{2\pi}}exp(\dfrac{-(ln(z)-\mu_y)^2}{2\sigma_y^2})$
+
+Or, in terms of x
+
+$f_z(z) = \dfrac{1}{z\sigma_x \sqrt{2n\pi}}exp(\dfrac{-(ln(z)-n\mu_x)^2}{2n\sigma_x^2})$
+
+for $n \geq 1$ - WHY - why not on n=0?
+
+
+
+
+
+
+\bigskip
 
 
 
@@ -295,9 +323,11 @@ $E(Z_n) = exp(n\mu + \frac{n\sigma^2}{2})$
 
 $Var(Z_n) = exp(2n \mu + n\sigma^2)(exp(n\sigma^2)-1)$
 
+$Median(Z_n) = exp(n\mu)$
+
 Where $\mu$ and $\sigma^2$ are the mean and variance of X.
 
-TO DO - MEDIAN
+
 TO DO - check all this
 
 \subsection{Part E}
@@ -344,6 +374,7 @@ The stationary distributions are where
 $N_i = \delta_{i,j}L \text{ where } j \in [1,L]$
 
 Q. Limiting distribution?
+
 
 
 
