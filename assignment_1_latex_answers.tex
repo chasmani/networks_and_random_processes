@@ -1,7 +1,6 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
-
 \usepackage{graphicx}
 
 \graphicspath {}
@@ -241,6 +240,116 @@ After 100 time steps (Figure 2), the empirical distribution is similar to the th
 \end{figure}
 
 After 500 time steps of 1 realisation(Figure 3), the empirical distribution is similar to the theoretical stationary distribution. This is jsut 1 realisation, so there is a lot of stochasticity in the specific distribution generated. This is a reasonably good representative example.
+
+
+
+\section{Question 2}
+
+$X_1, X_2, ... $ is a sequence of independent, identically distributed random variables (iirdvs) with 
+
+$X_i \sim N(\mu, \sigma^2)$ 
+
+$\mu \in {R}$ and $\sigma^2 > 0$
+
+Discrete time random walk on state space ${R}$
+
+$(Y_n : n \geq 0)$ with $Y_{n+1} = Y_n + X_{n+1}$ and $Y_0 = 0$
+
+
+\subsection{Part A}
+
+The weak law of large numbers for $Y_n$:
+
+$\frac{1}{n}Y_n = \frac{1}{n}\sum\limits_{k=1}^n X_k -> \mu \text{ as } n -> \infty$
+
+The expected value of $\frac{Y_n}{n}$ will converge to $\mu$ with large n.
+
+\bigskip
+The central limit theorem for $Y_n$:
+
+$\dfrac{Y_n - n\mu}{\sigma n^\frac{1}{2}} = \dfrac{1}{\sigma n^\frac{1}{2}}\sum\limits_{k=1}^n (X_k - \mu) -> \xi \text{ as } n -> \infty$
+
+where $\xi \sim N(0,1)$
+
+\subsection{Part B - distribution of $Y_n$}
+
+$Y_n \sim N(n\mu, n\sigma^2)$
+
+$Y_n$ is approxiamtely normally distributed with mean equal to $n\mu$, where $\mu$ is the mean of the random variable $X$, and with variance $n\sigma^2$, where $\sigma^2$ is the variance of the random variable $X$. 
+
+\subsection{Part C}
+
+$Z_n$ has a recurive relationship given by
+
+$Z_{n+1} = Z_n exp(X_{n+1})$
+
+and 
+
+$Z_{n} = \sum\limits_{i=1}^n exp(X_i)$
+
+TO DO - Derive the pdf, look at Matt's link on whatsapp
+
+
+
+$E(Z_n) = exp(n\mu + \frac{n\sigma^2}{2})$
+
+$Var(Z_n) = exp(2n \mu + n\sigma^2)(exp(n\sigma^2)-1)$
+
+Where $\mu$ and $\sigma^2$ are the mean and variance of X.
+
+TO DO - MEDIAN
+TO DO - check all this
+
+\subsection{Part E}
+
+We want 
+
+$E(Z_n) = 1 for all n$
+
+$E(Z_n) = exp(n\mu + \frac{n\sigma^2}{2}) = 1$
+
+$\mu + \frac{\sigma^2}{2} = 0$
+
+$\mu = - \frac{\sigma^2}{2}$
+
+$\mu = -\frac{1}{50}$
+
+
+\section{Question 3}
+
+\subsection{Part a}
+
+The state space is $X(i) \in X_0(j) \ \text{ where } \ i,j \in [1,L]$ 
+
+It is not irreducible, as once a type goes extinct it stays extinct, and so not every state can be reached from every other state.
+
+The stationary distributions are where all individuals are of one type
+
+Q- is that right?
+
+\subsection{Part b}
+
+The future state of the process depends only on the current state at each time step, so yes it is a Markov process. 
+
+The state space is 
+
+$N_i \in [0,L] \text{ and } \sum\limits_i^LN_i = L$ 
+
+The transition probabilities are ???
+
+The process is not irreducible, as once a state has $N_i = 0$ for any i, i.e. a type goes extinct, the state space where $N_i >0$ is no longer accessible.
+
+The stationary distributions are where 
+
+$N_i = \delta_{i,j}L \text{ where } j \in [1,L]$
+
+Q. Limiting distribution?
+
+
+
+
+
+
 
 
 
