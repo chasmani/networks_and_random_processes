@@ -297,9 +297,9 @@ $Y = ln(Z)$
 Consider the cumulative distribution function:
 
 
-$F(z) = P(Z \leq z) = P(Y \leq ln(z))$
+$F_z(z) = P(Z \leq z) = P(Y \leq ln(z)) = F_y(ln(z)) = \Phi(\dfrac{ln(z) - n\mu}{\sigma \sqrt{n}})$
 
-$f_z(z) = \frac{d}{dz}F(z)$
+$f_z(z) = \frac{d}{dz}F_z(z)$
 
 by the chain rule, this gives
 
