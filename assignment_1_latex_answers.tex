@@ -285,7 +285,7 @@ $Z_{n+1} = exp(Y_n + X_{n+1})$
 
 $Z_{n+1} = Z_n exp(X_{n+1})$
 
-TO DO - Derive the pdf, look at Matt's link on whatsapp
+\subsubsection{Derivation of pdf}
 
 $Y$ is distributed normally, and
 
@@ -304,37 +304,50 @@ by the chain rule, this gives
 
 $f_z(z) = \dfrac{1}{z} \dfrac{1}{\sigma_y \sqrt{2\pi}}exp(\dfrac{-(ln(z)-\mu_y)^2}{2\sigma_y^2})$
 
-Or, in terms of x
+Or, in terms of the standard deviationa nd mean of x
 
 $f_z(z) = \dfrac{1}{z\sigma_x \sqrt{2n\pi}}exp(\dfrac{-(ln(z)-n\mu_x)^2}{2n\sigma_x^2})$
 
-for $n \geq 1$ - WHY - why not on n=0?
-
-
-
-
-
+$Z_0$ is fixed by the initial conditions as $Z_0=1$. So the log-normal distribution given above applies for $n \geq 1$.
 
 \bigskip
 
-
+From wikipedia: 
 
 $E(Z_n) = exp(n\mu + \frac{n\sigma^2}{2})$
 
 $Var(Z_n) = exp(2n \mu + n\sigma^2)(exp(n\sigma^2)-1)$
 
-$Median(Z_n) = exp(n\mu)$
+$Med(Z_n) = exp(n\mu)$
 
 Where $\mu$ and $\sigma^2$ are the mean and variance of X.
 
+\subsection{Part D}
+$Z_n$ was simulated 500 times over 100 timesteps with $\mu_x=0$ and $\sigma_x=0.2$. 
 
-TO DO - check all this
+\subsubsection{Empirical Average}
+Figure shows the empirical average of $Z_n$ as a function of time, $n$. The error bars show the emprical standard deviation at each point.
+
+INSERT EMPRICAL AVERAGE FIGURE
+
+\subsubsection{Boxplots}
+Figure shows boxplots of the empirical average and range at $n=10$ and $n=100$. 
+
+INSERT BOXPLOTS FIGURES
+
+\subsubsection{Emprical PDF and theoretical PDF}
+Figure shows a kernel desinity estimation of the probability density funtion, with the theoretical prediction, for timesteps $n=10$ and $n=100$. 
+
+INSERT KDE FIGURES
+
+\subsubsection{Ergodic Average}
+Figure shows the ergodic average for 4 different single realisations plotted over 100 timesteps. 
 
 \subsection{Part E}
 
 We want 
 
-$E(Z_n) = 1 for all n$
+$E(Z_n) = 1 \text{ for all } n\geq0$
 
 $E(Z_n) = exp(n\mu + \frac{n\sigma^2}{2}) = 1$
 
