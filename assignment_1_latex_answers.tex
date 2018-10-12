@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{float}
 
 \graphicspath {}
 
@@ -219,23 +220,23 @@ $a = \dfrac{-1}{(\frac{q}{p})^{L-1}-1}$
 
 A simple random walk with L=10 and closed boundary conditions was simulated 500 times, with a $p=0.6$ and starting at x=1 at t=0.
 
-\begin{figure}
-\includegraphics[scale=0.5]{10_steps_a.png} 
+\begin{figure}[H]
+\includegraphics[scale=1]{10_steps_a.png} 
 \small{Figure 1. The frequency distribution over 500 different realisations after 10 timesteps.}
 \end{figure}
 
 After 10 time steps (Figure 1), the state of the process is still heavily influenced by the starting condition of x(0) = 1. 
 
-\begin{figure}
-\includegraphics[scale=0.5]{100_steps_a.png} 
+\begin{figure}[H]
+\includegraphics[scale=1]{100_steps_a.png} 
 \small{Figure 2. The frequency distribution over 500 different realisations after 100 timesteps.}
 \end{figure}
 
 After 100 time steps (Figure 2), the empirical distribution is similar to the theoretical stationary distribution. Ergodic processes tend towards the stationary distribution after a large number of time steps.
 
 
-\begin{figure}
-\includegraphics[scale=0.5]{500_steps_a.png} 
+\begin{figure}[H]
+\includegraphics[scale=1]{500_steps_a.png} 
 \small{Figure 3. The frequency distribution of states over 500 timesteps of 1 realisation of the simulated simple random walk.}
 \end{figure}
 
@@ -356,6 +357,10 @@ $\mu + \frac{\sigma^2}{2} = 0$
 $\mu = - \frac{\sigma^2}{2}$
 
 $\mu = -\frac{1}{50}$
+
+Figure shows the emprical tail of the data compared to the theoretical survival function, defined as 1 minus the cumulative distribution function.
+
+
 
 
 \section{Question 3}
