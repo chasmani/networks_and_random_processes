@@ -367,29 +367,70 @@ Figure shows the emprical tail of the data compared to the theoretical survival 
 
 \subsection{Part a}
 
-The state space is $X(i) \in X_0(j) \ \text{ where } \ i,j \in [1,L]$ 
 
-It is not irreducible, as once a type goes extinct it stays extinct, and so not every state can be reached from every other state.
+Each individuum can have the starting type of any other individuum. If we consider a vector that contains all of the unique starting states, $b_0 = [X_0(1), X_0(2), . . . , X_0(L)]$, then each individuum can be any element in that vector. This gives a state space of size $L^2$. In mathematical notation:
 
-The stationary distributions are where all individuals are of one type
 
-Q- is that right?
+$X(i) \in X_0(j) \ \text{ where } \ i,j \in \{1,2,...,L\}$ 
+
+
+The process is not irreducible, as once a type goes extinct it stays extinct, and so not every state can be reached from every other state.
+
+The stationary distributions are where all individuals are of one type i.e. all $X(i)$ are equal to the same one of the initial types $X_0(j)$. In mathematical notation:
+
+$ \forall X(i) : X(i) = X_0(j) \text{ where } j \in \{1,2,..,L\}$  
 
 \subsection{Part b}
 
-The future state of the process depends only on the current state at each time step, so yes it is a Markov process. 
+\subsubsection{State space}
+
+The future state of the process depends only on the current state at each time step, so yes it is Markov. 
 
 The state space is 
 
-$N_i \in [0,L] \text{ and } \sum\limits_i^LN_i = L$ 
+$N_i \in {0,1,...,L} \text{ and } \sum\limits_i^LN_i = L$ 
 
-The transition probabilities are ???
+For each type, there can be an integer number of individuals of that type between 0 and L. Their is the constraining condition that the total indiivduals is always L. 
+
+\subsubsection{Transition Probabilities}
+
+Let $N_t(j)$ be the number of individuals of a particular species, $j$ in a generation, and L individuals in total. For indiviudal of the next generation, the probability of being of this particular species is equal to the proportion of individuals of that type in the parent generation. 
+
+$p(X_{t+1}(i) = j) = N_t(j)/L$
+
+So the transition probabilites for $N_t+1$ are given by a binomial distribution:
+
+$p(N_{t+1}(j) = k) = {L \choose k}(\frac{N_t(j)}{L})^k(1-\frac{N_t(j)}{L})^{L-k}$
+
+The process is not irreducible, if the number of indiviudals of the given species reaches zero, then it is extinct and can never grow again above zero. If the number of individuals reaches L, then this species is the only species left and will always remain so. 
+
+\subsubsection{Stationary Distributions}
+
+If we define a distribution vector as
+
+$\pi = [N_t(0), N_t(1),...,N_t(L)]$
+
+Then there are stationary distributions on the absorbing states
+
+$\pi_1 = [1, 0,...,0,0]$
+
+$\pi_2 = [0, 0,...,0,1]$
+
+and any normalised linear combination of these states, so
+
+$\pi_0 = [a, 0,...,0,1-a] \text{ where } a \in [0,1]$ 
+
+With the initial condition $N_0 = 1$, there is one individual of this type in the population. By symmetry, the probability of this species taking over has to be equal to $1/L$. So the limiting distribution as $t -> \infty$ is
+
+$\pi_{\infty} = [1-\frac{1}{L},0,...,0,\frac{1}{L}]$
+
+
 
 The process is not irreducible, as once a state has $N_i = 0$ for any i, i.e. a type goes extinct, the state space where $N_i >0$ is no longer accessible.
 
 The stationary distributions are where 
 
-$N_i = \delta_{i,j}L \text{ where } j \in [1,L]$
+$N_i = \delta_{i,j}L \text{ where } j \in \{1,L\}$
 
 Q. Limiting distribution?
 
