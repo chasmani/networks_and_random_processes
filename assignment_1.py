@@ -8,7 +8,6 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 import seaborn as sns
-plt.rcParams['figure.figsize'] = [10, 6]
 
 
 # 1.c Simple Random Walk
@@ -94,6 +93,7 @@ def plot_distribution_500_realisations(total_steps):
 
 def plot_distribution_1_realisation_500_steps(title):
 
+
 	p = 0.6
 
 	positions = simple_random_walk(p, 500, 10, "closed")
@@ -117,7 +117,7 @@ def plot_distribution_1_realisation_500_steps(title):
 	
 def plot_4_realisations():
 
-
+	plt.rcParams['figure.figsize'] = [10, 6]
 
 	plt.figure(1)
 	plt.suptitle('Closed SRW (L=10)-4 seperate realisations with 500 timesteps', fontsize = 12)
@@ -144,12 +144,6 @@ def plot_4_realisations():
 	plot_distribution_1_realisation_500_steps("d")
 
 	plt.show()
-
-plot_4_realisations()
-
-
-
-# Simulate Z_n for one realisation
 
 
 def one_realisation(mu, sigma, tmax):
@@ -178,10 +172,6 @@ def plot_y_and_z(mu, sigma, tmax):
 	plt.xlabel('n', fontsize=20)
 	plt.show()
 
-mu = 0
-sigma = 0.2
-tmax = 100
-	
 
 def empirical_results(mu, sigma, tmax):
 
@@ -195,7 +185,14 @@ def empirical_results(mu, sigma, tmax):
 	return results
 
 
-def plot_empirical_results(mu, sigma, tmax):
+def plot_empirical_results():
+
+	mu = 0
+	sigma = 0.2
+	tmax = 100
+	
+
+	plt.rcParams['figure.figsize'] = [10, 6]
 
 	results = empirical_results(mu,sigma,tmax)
 		
@@ -203,11 +200,20 @@ def plot_empirical_results(mu, sigma, tmax):
 	empirical_sds = results.std(axis=0)
 	
 	plt.figure(0)
-	plt.errorbar(range(tmax), empirical_averages, yerr=empirical_sds, label = r'Emprical Average')
+	plt.errorbar(range(tmax), empirical_averages, yerr=empirical_sds, label = r'Emprical Average and standard deviation')
 	
-	plt.legend(loc = 'upper left', fontsize = 20)
+	plt.legend(loc="upper left")
 	plt.xlabel('n', fontsize=20)
+	plt.ylabel(r'$Z_n$', fontsize=20)
+
+	plt.title(r'Emprical Average of 500 realisations of $Z_n$ as a function of n')
+
+	plt.savefig('Emprical Average.png')
+
+
+	plt.show()
 	
+plot_empirical_results()
 	
 def box_plots(mu,sigma,tmax):
 	
@@ -279,9 +285,9 @@ def ergodic_average(mu,sigma,tmax):
  
 
 # Second part constants
-mu = -0.02
-sigma = 0.2
-tmax = 100
+#mu = -0.02
+#sigma = 0.2
+#tmax = 100
 
 		
 def empirical_tail(mu,sigma,tmax,timestep,scale):

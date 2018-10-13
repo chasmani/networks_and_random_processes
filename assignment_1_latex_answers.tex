@@ -240,14 +240,14 @@ NOT SURE ABOUT THIS LAST PART - CHECK ON MONDAY AGAINST SOMEONE ELSE'S ANSWER
 A simple random walk with L=10 and closed boundary conditions was simulated 500 times, with $p=0.6$ and starting at x=1 at t=0.
 
 \begin{figure}[H]
-\includegraphics[scale=1]{10_steps_a.png} 
+\includegraphics[scale=0.8]{10_steps_a.png} 
 \small{Figure 1. The frequency distribution over 500 different realisations after 10 timesteps.}
 \end{figure}
 
 Ergodic processes tend towards the stationary distribution after a large number of time steps. After 10 time steps (Figure 1), the emprical distribution is still heavily influenced by the starting condition of x(0) = 1. 
 
 \begin{figure}[H]
-\includegraphics[scale=1]{100_steps_a.png} 
+\includegraphics[scale=0.8]{100_steps_a.png} 
 \small{Figure 2. The frequency distribution over 500 different realisations after 100 timesteps.}
 \end{figure}
 
@@ -255,7 +255,7 @@ After 100 time steps (Figure 2), enough time has passed so that the empirical di
 
 
 \begin{figure}[H]
-\includegraphics[scale=1]{500_steps_a.png} 
+\includegraphics[scale=0.8]{500_steps_a.png} 
 \small{Figure 3. The frequency distribution of states over 500 timesteps of 1 single realisations. }
 \end{figure}
 
@@ -347,14 +347,22 @@ $Med(Z_n) = exp(n\mu)$
 Where $\mu$ and $\sigma^2$ are the mean and variance of X.
 
 \subsection{Part D}
-$Z_n$ was simulated 500 times over 100 timesteps with $\mu_x=0$ and $\sigma_x=0.2$. 
+$Z_n$ was simulated 500 times over 100 timesteps with $\mu_x=0$ and $\sigma_x=0.2$.
 
 \subsubsection{Empirical Average}
-Figure shows the empirical average of $Z_n$ as a function of time, $n$. The error bars show the emprical standard deviation at each point.
 
-INSERT EMPRICAL AVERAGE FIGURE
+\begin{figure}[H]
+\includegraphics[scale=0.5]{empirical_average_1.png} 
+\small{Figure 5. The emprical average of 500 simulations of $Z_n$ as a funciton of n over 100 timesteps. }
+\end{figure}
+
+
+Figure shows the empirical average of $Z_n$ as a function of time, $n$. The error bars show the emprical standard deviation at each point. 
 
 \subsubsection{Boxplots}
+
+
+
 Figure shows boxplots of the empirical average and range at $n=10$ and $n=100$. 
 
 INSERT BOXPLOTS FIGURES
