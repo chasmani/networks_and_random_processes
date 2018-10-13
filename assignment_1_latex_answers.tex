@@ -361,23 +361,37 @@ Figure shows the empirical average of $Z_n$ as a function of time, $n$. The erro
 
 \subsubsection{Boxplots}
 
+\begin{figure}[H]
+\includegraphics[scale=0.5]{box_plots_a.png} 
+\small{Figure 6. The emprical ranges of $Z_n$ over 500 realisations at n=10 and n=100. The whiskers are set at $1.5 \times IQR$ where IQR is the interquartile range.}
+\end{figure}
 
-
-Figure shows boxplots of the empirical average and range at $n=10$ and $n=100$. 
-
-INSERT BOXPLOTS FIGURES
+Figure 6 shows the ranges of empirical data at 10 and 100 timesteps. The distribution at 100 timesteps has a much larger range than at 10 timesteps.
 
 \subsubsection{Emprical PDF and theoretical PDF}
 Figure shows a kernel desinity estimation of the probability density funtion, with the theoretical prediction, for timesteps $n=10$ and $n=100$. 
 
-INSERT KDE FIGURES
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{empirical_pdf_kde_10_a.png} 
+\small{Figure 7. Empirical kernel density estimation and theoretical probability density fucntion for $Z_n$ with $\mu_x=0$ and $\sigma=0.2$ at $n=10$ timesteps over 500 realisations.}
+\end{figure}
+
+Figure 7 shows a reasonably close fit between the empirical kernel density estimate and the theoretical probability density function for $Z_n$ at $n=10$ timesteps for 500 realisations. The closeness of the fit improves with more realisations.
+
+TO DO - ADD IN FIG 8 FROM UNI LAPTOP
+
 
 \subsubsection{Ergodic Average}
-Figure shows the ergodic average for 4 different single realisations plotted over 100 timesteps. 
 
-\subsection{Part E}
+\begin{figure}[H]
+\includegraphics[scale=0.8]{ergodic_average_a.png} 
+\small{Figure 9. Ergodic average of $Z_n$ for a single realisation as a function of total timesteps, N. $\mu_x=0$ and $\sigma_x=0.2$.}
+\end{figure}
 
-We want 
+Figure shows the ergodic average for a single realisation plotted over 100 timsteps. 
+
+\subsection{Part E - Empirical Tail}
 
 $E(Z_n) = 1 \text{ for all } n\geq0$
 
@@ -389,6 +403,24 @@ $\mu = - \frac{\sigma^2}{2}$
 
 $\mu = -\frac{1}{50}$
 
+A value of $\mu_x$ of -0.02 will give $E(Z_n)=1$ for all $n \geq 0$.
+
+\begin{figure}[H]
+\includegraphics[scale=0.8]{empirical_tail_10_a.png} 
+\small{Figure 10. Empirical tail of $Z_n$ compared to the theoretical prediction of the survival function, 1-Cumulative Density Function. At timestep 10. 500 realisations, $\mu_x=-0.02$, $\sigma_x=0.02$.}
+\end{figure}
+
+
+\begin{figure}[H]
+\includegraphics[scale=0.8]{empirical_tail_100_a.png} 
+\small{Figure 11. Empirical tail of $Z_n$ compared to the theoretical prediction of the survival function, 1-Cumulative Density Function. At timestep 100. 500 realisations, $\mu_x=-0.02$, $\sigma_x=0.02$.}
+\end{figure}
+
+Figures 10 and 11 show the empirical tail of $Z_n$ at timesteps $n=10$ and $n=100$ respectively, with a close fit to the theoretical prediction. 
+
+
+
+
 Figure shows the emprical tail of the data compared to the theoretical survival function, defined as 1 minus the cumulative distribution function.
 
 
@@ -398,9 +430,7 @@ Figure shows the emprical tail of the data compared to the theoretical survival 
 
 \subsection{Part a}
 
-
-Each individuum can have the starting type of any other individuum. If we consider a vector that contains all of the unique starting states, $b_0 = [X_0(1), X_0(2), . . . , X_0(L)]$, then each individuum can be any element in that vector. This gives a state space of size $L^2$. In mathematical notation:
-
+Each individual can have the starting type of any other individual. If we consider a vector that contains all of the unique starting states, $b_0 = [X_0(1), X_0(2), . . . , X_0(L)]$, then in the state space, each individual can have a type of any element in that vector. This gives a total state space of size $L^2$. In mathematical notation:
 
 $X(i) \in X_0(j) \ \text{ where } \ i,j \in \{1,2,...,L\}$ 
 
