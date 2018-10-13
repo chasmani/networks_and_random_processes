@@ -255,11 +255,16 @@ After 100 time steps (Figure 2), enough time has passed so that the empirical di
 
 
 \begin{figure}[H]
-\includegraphics[scale=0.5]{500_steps_b.png} 
-\small{Figure 3. The frequency distribution of states over 500 timesteps of 4 seperate single realisations. }
+\includegraphics[scale=1]{500_steps_a.png} 
+\small{Figure 3. The frequency distribution of states over 500 timesteps of 1 single realisations. }
 \end{figure}
 
-After 500 time steps of 1 realisation (Figure 3), the empirical distribution is similar to the theoretical stationary distribution. Over just 1 realisation there is a lot of stochasticity in the specific distribution generated. So to give a representative sample 4 seperate realisations are shown in Figure 3.
+\begin{figure}[H]
+\includegraphics[scale=0.5]{500_steps_b.png} 
+\small{Figure 4. The frequency distribution of states over 500 timesteps of 4 seperate single realisations. }
+\end{figure}
+
+After 500 time steps of 1 realisation (Figure 3), the empirical distribution is similar to the theoretical stationary distribution. Over just 1 realisation there is a lot of stochasticity in the specific distribution generated. So to give a representative sample 4 firther seperate realisations are shown in Figure 4.
 
 
 \section{Question 2}
@@ -281,7 +286,7 @@ The weak law of large numbers for $Y_n$:
 
 $\frac{1}{n}Y_n = \frac{1}{n}\sum\limits_{k=1}^n X_k -> \mu \text{ as } n -> \infty$
 
-The expected value of $\frac{Y_n}{n}$ will converge to $\mu$ with large n.
+The value of $\frac{Y_n}{n}$ will converge to $\mu$ with large n.
 
 \bigskip
 The central limit theorem for $Y_n$:
@@ -294,7 +299,7 @@ where $\xi \sim N(0,1)$
 
 $Y_n \sim N(n\mu, n\sigma^2)$
 
-$Y_n$ is approxiamtely normally distributed with mean equal to $n\mu$, where $\mu$ is the mean of the random variable $X$, and with variance $n\sigma^2$, where $\sigma^2$ is the variance of the random variable $X$. 
+$Y_n$ is normally distributed with mean equal to $n\mu$, where $\mu$ is the mean of the random variable $X$, and with variance $n\sigma^2$, where $\sigma^2$ is the variance of the random variable $X$. 
 
 \subsection{Part C}
 
@@ -406,9 +411,9 @@ The future state of the process depends only on the current state at each time s
 
 The state space is 
 
-$N_i \in {0,1,...,L} \text{ and } \sum\limits_i^LN_i = L$ 
+$N_i \in \{0,1,...,L\} $ 
 
-For each type, there can be an integer number of individuals of that type between 0 and L. Their is the constraining condition that the total indiivduals is always L. 
+For each type, there can be an integer number of individuals of that type between 0 and L. 
 
 \subsubsection{Transition Probabilities}
 
