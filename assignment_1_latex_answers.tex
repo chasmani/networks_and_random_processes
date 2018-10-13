@@ -18,8 +18,6 @@
 
 \section{Question 1}
 
-
-
 This section considers a Simple Random Walk on ${1,...,L}$ with probabilities $p \in [0,1]$ and $q = 1-p$ to jump right and left respectively. 
 
 Different boundary conditions are considered.
@@ -28,9 +26,11 @@ Different boundary conditions are considered.
 
 \subsubsection{Case 1 - Periodic}
 
-Periodic boundary conditions, so $p(0,L) = q$ and $p(L,0) = p$
+Periodic boundary conditions, $p(0,L) = q$ and $p(L,0) = p$
 
 The transition matrix is:
+
+\bigskip
 
 $P = \begin{bmatrix}
     0 & p & 0 & \dots  & 0 & q \\
@@ -41,13 +41,13 @@ $P = \begin{bmatrix}
     p & 0 & 0 & \dots & q & 0
 \end{bmatrix}$
 
-The process is irreducible, i.e. every state can, eventually, reach every other state. And there is a finite state space, so it has 1 unique stationary distribution.
+\bigskip
 
-The states can be laid out on a circle, and are symmetrical, so the stationary distribution is where all states have equal probabilities. 
+The process is irreducible i.e. every state can, eventually, reach every other state. And there is a finite state space so there is 1 unique stationary distribution.
 
-$\pi = (1/L, 1/L,..., 1/L)$
+The process can "loop" around from state L to 1 and vice versa. The state path can be visualised as a circlular loop. Considering the symmetry, the stationary distribution must be uniform. 
 
-for all $p \in (0,1)$ 
+$\pi = (1/L, 1/L,..., 1/L) \text{ for all } p \in (0,1)$ 
 
 The stationary distribution is reversible only for the case $p=q=\frac{1}{2}$.
 
@@ -55,6 +55,8 @@ The stationary distribution is reversible only for the case $p=q=\frac{1}{2}$.
 \subsubsection{Case 2 - Closed}
 
 Transition matrix:
+
+\bigskip
 
 $P = \begin{bmatrix}
     q & p & 0 & \dots  & 0 & 0 \\
@@ -65,28 +67,36 @@ $P = \begin{bmatrix}
     0 & 0 & 0 & \dots & q & p
 \end{bmatrix}$
 
-If $p = 1$, there is an absorbing state at L, and the stationary dsitribution is $\pi = (0,0,...,0,1)$. This stationary distribution is reversible, all terms in the detailed balance equations are zero. This is not irreducible, as the walk can only move from $s_x$ to $s_{x+1}$. 
+\bigskip
 
-If $q = 1$, there is an absorbing state at 1, and the stationary dsitribution is $\pi = (1,0,...,0,0)$. This stationary distribution is reversible, all terms in the detailed balance equations are zero. This is not irreducible, as the walk can only move from $s_x$ to $s_{x-1}$. 
+If $p = 1$ there is an absorbing state at L and the stationary distribution is $\pi = (0,0,...,0,1)$. This stationary distribution is reversible because all terms in the detailed balance equations are zero. This is not irreducible because the walk can only move from $s_x$ to $s_{x+1}$, and not in the opposite direction. 
 
-If $p = q =\frac{1}{2}$, the process is irreducible, as every state can, eventually, be reached from every other state. There is a finite state space and so there is onle 1 stationary distribution. The sum of all columns equal 1, so there is a constant left eigenvector, and so the stationary distribution is $\pi = (1/L, 1/L,..., 1/L)$. This stationary distribution is reversible.
+\bigskip
 
-If $p,q \neq [0,1/2,1]$, then the process is irreducible, and it has a finite state space so there is only 1 stationary distribution. Looing at the detailed balance equations, we can find a recurrence relation of the form:
+If $q = 1$ there is an absorbing state at 1 and the stationary dsitribution is $\pi = (1,0,...,0,0)$. This stationary distribution is reversible because all terms in the detailed balance equations are zero. This is not irreducible, as the walk can only move from $s_x$ to $s_{x-1}$ and not in the opposite direction. 
 
+\bigskip
 
+If $p = q =\frac{1}{2}$ the process is irreducible because every state can, eventually, be reached from every other state. There is also a finite state space and so there is only 1 stationary distribution. All of the columns in the transition matrix sum to 1 and so there is a constant left eigenvector. Therefore the the unique stationary distribution is uniform and given by $\pi = (1/L, 1/L,..., 1/L)$. This stationary distribution is reversible.
 
-$\pi_{x-1} p= \pi_x p \text{ over } x = \{2,3,..., L-1\}$
+\bigskip
+
+If $p,q \neq [0,1/2,1]$ then the process is irreducible and it has a finite state space. So the process is ergodic and there is only 1 stationary distribution. Looking at the detailed balance equations, we can find a recurrence relation of the form:
+
+$\pi_{x-1} p = \pi_x q \text{ over } x = \{2,3,..., L\}$
 
 
 $ \pi_x = \pi_{x-1} \frac{p}{q} $
 
-By induction, this suggests a solution like
+By induction, the solution is
 
 $\pi_x = \pi_1 (\frac{p}{q})^{x-1}$
 
 This is a reversible distribution, and so must also be stationary. As the process is ergodic, this is the unique stationary distrubution.
 
-We can check this distribution is staionary for a closed simple random walk with 4 states
+We can check this distribution is stationary for a closed simple random walk with 4 states
+
+\bigskip
 
  $\begin{bmatrix}
     \pi_1 \\
@@ -107,11 +117,17 @@ We can check this distribution is staionary for a closed simple random walk with
     \pi_1(\frac{p}{q})^3 
 \end{bmatrix}$
 
-We also need to normalise the distribution, so the stationary distribution will be
+\bigskip
+
+The normalised stationary distribution is
 
 $\pi_x = \dfrac{\pi_1(\frac{p}{q})^{x-1}}{\sum_i^L{\pi_i}}$
 
 \subsection{Part B - Absorbing}
+
+The transition matrix for a simple random walk with absorbing boundary conditions is
+
+\bigskip
 
 $P = \begin{bmatrix}
     1 & 0 & 0 & \dots  & 0 & 0 \\
@@ -122,24 +138,25 @@ $P = \begin{bmatrix}
     0 & 0 & 0 & \dots & 0 & 1
 \end{bmatrix}$
 
+\bigskip
+
 The process is not irreducible, as no other states can be reached from state 1 or state L. 
 
-The (normalised) stationary distributions are
+The two stationary distributions suggested by the absorbing states are
 
 $\pi_1 = [1,0,0,...,0]$
 
 $\pi_2 = [0,0,0,...,1]$
 
-$\pi_3 = [a,0,0,..,0,1-a] \text{ where } a \in [0,1]$
+These can be combined linearly to give stationary distributions of the form
 
+$\pi_0 = [a,0,0,..,0,1-a] \text{ where } a \in [0,1]$
 
-
-These distributions are reversible, looking at the detailed balance conditions:
+These distributions are reversible. Looking at the detailed balance conditions:
 
 $\pi(x)p(x,y) = \pi(y)p(y,x)$ 
 
-All terms for all equations are zero, therefore it is reversible.
-
+All terms for all equations are zero and therefore it is reversible.
 
 \bigskip
 
@@ -150,8 +167,7 @@ The absorption probability in site L is
 
 $h_k^L = P(X_n = L \text{ for some } n \geq 0|X_0 = k)$
 
-
-$h_k^L = P(X_n = L \text{ for some } n \geq 0|X_0 = k)$
+or
 
 $h_k^L = P(X_n = L | X_0 = k)$
 
@@ -163,11 +179,11 @@ Using the Markov property:
 
 $h_{k}^L = P(X_n = L | X_1 = k+1) \times p + P(X_n = L | X_1 = k-1) \times q $
 
-\bigskip
+or
 
 $h_{k}^L = h_{k+1}^L \times p + h_{k-1}^L \times q $
 
-And the boundary conditions are:
+The boundary conditions are:
 
 $h_{1}^L = 0 \text{ and } h_{L}^L = 1$
 
@@ -177,16 +193,18 @@ If $p=q$ then this recursion relation becomes
 
 $h_{k}^L = \dfrac{h_{k+1}^L + h_{k-1}^L}{2} $
 
-This is linear interpolation between the two surrounding states, so the absorption probability is linear in k. Consdiering the boundary conditions, the solution is:
+This is linear interpolation between the two surrounding states and therefore the absorption probability is linear in k. Consdiering the boundary conditions the solution is:
 
 $h_{k}^L = \frac{k-1}{L-1}$
 
 \bigskip
 
-If $p\neq q$, we can solve the recursion realtion by considering the ansatz:
+If $p\neq q$, consider the ansatz:
 
 
 $h_{k}^L = \lambda^k $
+
+Using this ansatz the recursion relation becomes
 
 $\lambda = p \lambda^2 + q$
 
@@ -215,33 +233,33 @@ $b = \dfrac{1}{(\frac{q}{p})^{L}-\frac{q}{p}})$
 
 $a = \dfrac{-1}{(\frac{q}{p})^{L-1}-1}$
 
+NOT SURE ABOUT THIS LAST PART - CHECK ON MONDAY AGAINST SOMEONE ELSE'S ANSWER
 
 \subsection{Part C - simulations}
 
-A simple random walk with L=10 and closed boundary conditions was simulated 500 times, with a $p=0.6$ and starting at x=1 at t=0.
+A simple random walk with L=10 and closed boundary conditions was simulated 500 times, with $p=0.6$ and starting at x=1 at t=0.
 
 \begin{figure}[H]
 \includegraphics[scale=1]{10_steps_a.png} 
 \small{Figure 1. The frequency distribution over 500 different realisations after 10 timesteps.}
 \end{figure}
 
-After 10 time steps (Figure 1), the state of the process is still heavily influenced by the starting condition of x(0) = 1. 
+Ergodic processes tend towards the stationary distribution after a large number of time steps. After 10 time steps (Figure 1), the emprical distribution is still heavily influenced by the starting condition of x(0) = 1. 
 
 \begin{figure}[H]
 \includegraphics[scale=1]{100_steps_a.png} 
 \small{Figure 2. The frequency distribution over 500 different realisations after 100 timesteps.}
 \end{figure}
 
-After 100 time steps (Figure 2), the empirical distribution is similar to the theoretical stationary distribution. Ergodic processes tend towards the stationary distribution after a large number of time steps.
+After 100 time steps (Figure 2), enough time has passed so that the empirical distribution is similar to the theoretical stationary distribution.
 
 
 \begin{figure}[H]
-\includegraphics[scale=1]{500_steps_a.png} 
-\small{Figure 3. The frequency distribution of states over 500 timesteps of 1 realisation of the simulated simple random walk.}
+\includegraphics[scale=0.7]{500_steps_b.png} 
+\small{Figure 3. The frequency distribution of states over 500 timesteps of 4 seperate single realisations. }
 \end{figure}
 
-After 500 time steps of 1 realisation(Figure 3), the empirical distribution is similar to the theoretical stationary distribution. This is jsut 1 realisation, so there is a lot of stochasticity in the specific distribution generated. This is a reasonably good representative example.
-
+After 500 time steps of 1 realisation (Figure 3), the empirical distribution is similar to the theoretical stationary distribution. Over just 1 realisation there is a lot of stochasticity in the specific distribution generated. So to give a representative sample 4 seperate realisations are shown in Figure 3.
 
 
 \section{Question 2}
