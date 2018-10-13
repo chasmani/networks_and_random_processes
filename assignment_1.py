@@ -8,7 +8,7 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 import seaborn as sns
-plt.rcParams['figure.figsize'] = [8, 6]
+plt.rcParams['figure.figsize'] = [10, 6]
 
 
 # 1.c Simple Random Walk
