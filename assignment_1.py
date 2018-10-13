@@ -289,13 +289,12 @@ def empirical_pdf_at_timestep(timestep):
 	mu = 0
 	sigma = 0.2
 	tmax = 100
-	
 
 	plt.rcParams['figure.figsize'] = [10, 6]
 	
 	results = empirical_results(mu,sigma,tmax, 5000)
 	timestep_results = results[:,[timestep-1]]
-	plt.hist(timestep_results, density=True)
+	#plt.hist(timestep_results, density=True)
 	
 	# KDE plot 1
 	kde = stats.gaussian_kde(timestep_results.reshape(5000))
@@ -305,14 +304,14 @@ def empirical_pdf_at_timestep(timestep):
 
 	# Theoretical plot 1
 	rv = stats.lognorm([(sigma)*(timestep**0.5)], scale=np.exp(timestep*mu))
-	#plt.plot(xx, rv.pdf(xx), label="Theoretical Distribution")
+	plt.plot(xx, rv.pdf(xx), label="Theoretical Distribution")
 
 	# KDE plot 2
-	sns.kdeplot(timestep_results.reshape(5000), gridsize=100000, label="Empirical KDE")
+	sns.kdeplot(timestep_results.reshape(5000), gridsize=10000, label="Empirical KDE")
 	
 	if timestep > 10:
 		x1,x2,y1,y2 = plt.axis()
-		plt.axis((-1,1000,y1,y2))
+		plt.axis((-1,10,0,0.1))
 
 	plt.xlabel(r'$Z_n$')
 	plt.ylabel("Probablity Density")
@@ -322,6 +321,8 @@ def empirical_pdf_at_timestep(timestep):
 	#plt.savefig('emprical_pdf_kde_{}.png'.format(timestep))
 
 	plt.show()
+
+empirical_pdf_at_timestep(10)
 
 
 def log_normal_pdf(z_input, mu, sigma, timestep):
@@ -406,4 +407,3 @@ def empirical_tail(timestep):
 
 	plt.show()
 
-empirical_tail(10)

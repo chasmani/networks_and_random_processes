@@ -264,7 +264,7 @@ After 100 time steps (Figure 2), enough time has passed so that the empirical di
 \small{Figure 4. The frequency distribution of states over 500 timesteps of 4 seperate single realisations. }
 \end{figure}
 
-After 500 time steps of 1 realisation (Figure 3), the empirical distribution is similar to the theoretical stationary distribution. Over just 1 realisation there is a lot of stochasticity in the specific distribution generated. So to give a representative sample 4 firther seperate realisations are shown in Figure 4.
+After 500 time steps of 1 realisation (Figure 3), the empirical distribution is similar to the theoretical stationary distribution. Over just 1 realisation there is a lot of stochasticity in the specific distribution generated. To give a representative sample 4 further seperate realisations are shown in Figure 4.
 
 
 \section{Question 2}
@@ -328,7 +328,7 @@ by the chain rule, this gives
 
 $f_z(z) = \dfrac{1}{z} \dfrac{1}{\sigma_y \sqrt{2\pi}}exp(\dfrac{-(ln(z)-\mu_y)^2}{2\sigma_y^2})$
 
-Or, in terms of the standard deviationa nd mean of x
+Or, in terms of the standard deviation and mean of x
 
 $f_z(z) = \dfrac{1}{z\sigma_x \sqrt{2n\pi}}exp(\dfrac{-(ln(z)-n\mu_x)^2}{2n\sigma_x^2})$
 
@@ -363,14 +363,12 @@ Figure shows the empirical average of $Z_n$ as a function of time, $n$. The erro
 
 \begin{figure}[H]
 \includegraphics[scale=0.5]{box_plots_a.png} 
-\small{Figure 6. The emprical ranges of $Z_n$ over 500 realisations at n=10 and n=100. The whiskers are set at $1.5 \times IQR$ where IQR is the interquartile range.}
+\small{Figure 6. The empirical ranges of $Z_n$ over 500 realisations at n=10 and n=100. The whiskers are set at $1.5 \times IQR$ where IQR is the interquartile range.}
 \end{figure}
 
 Figure 6 shows the ranges of empirical data at 10 and 100 timesteps. The distribution at 100 timesteps has a much larger range than at 10 timesteps.
 
 \subsubsection{Emprical PDF and theoretical PDF}
-Figure shows a kernel desinity estimation of the probability density funtion, with the theoretical prediction, for timesteps $n=10$ and $n=100$. 
-
 
 \begin{figure}[H]
 \includegraphics[scale=0.5]{empirical_pdf_kde_10_a.png} 
@@ -430,9 +428,19 @@ Figure shows the emprical tail of the data compared to the theoretical survival 
 
 \subsection{Part a}
 
-Each individual can have the starting type of any other individual. If we consider a vector that contains all of the unique starting states, $b_0 = [X_0(1), X_0(2), . . . , X_0(L)]$, then in the state space, each individual can have a type of any element in that vector. This gives a total state space of size $L^2$. In mathematical notation:
+Each individual can have the starting type of any other individual. Let $T$ equal the set of all unique starting states, so 
 
-$X(i) \in X_0(j) \ \text{ where } \ i,j \in \{1,2,...,L\}$ 
+$T = \{X_0(1), X_0(2), . . . , X_0(L)\}$
+
+Each individual can have a type of any element in that set. This gives a total state space of size $L^2$. In mathematical notation:
+
+$X(i) \in T \forall i \in \{1,2,...,L\}$ 
+
+
+$X(i) \in \{X_0(1), X_0(2), . . . , X_0(L)\} \forall i \in \{1,2,...,L\}$ 
+
+$X(i) \in X_0(j) \text{ where } \ j \in \{1,2,...,L\} \forall i \in\{1,2,...,L\}$ 
+
 
 
 The process is not irreducible, as once a type goes extinct it stays extinct, and so not every state can be reached from every other state.
@@ -489,13 +497,26 @@ $\pi_{\infty} = [1-\frac{1}{L},0,...,0,\frac{1}{L}]$
 
 The process is not irreducible, as once a state has $N_i = 0$ for any i, i.e. a type goes extinct, the state space where $N_i >0$ is no longer accessible.
 
-The stationary distributions are where 
+\subsection{Part C - Simulations}
 
-$N_i = \delta_{i,j}L \text{ where } j \in \{1,L\}$
+\begin{figure}[H]
+\includegraphics[scale=0.6]{Wright-Fisher_a.png} 
+\small{Figure 12. Dynamics of Wright-Fisher model of population dynamics with $L=100$ individuals of unique type at generation $t=0$.}
+\end{figure}
 
-Q. Limiting distribution?
+In this simulation there is only one type left after about 260 generations. In the earlier generations, the number of types is quickly reduced as types go extinct. In this simulation there are only 3 types left after about 70 generations. 
+
+The probability of any particular type going extinct in the next generation is
+
+$p(N_{t+1}(j) = 0) = (1-\frac{N_t(j)}{L})^{L}$
 
 
+
+
+
+While there is more than one type, there is always a probability that one or more of the types will go extinct in the following generation. So over time the number of unique generations reduces. Given enough time, the number of types will always go to 1. 
+
+Considering the transition matrix, there 
 
 
 
