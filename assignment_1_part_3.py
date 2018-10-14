@@ -76,9 +76,11 @@ def am_done(v):
 
 def average_lifetime():
 
+	L = 200
+
 	array_L = np.arange(1,L)
-	max_timemax_time = 500
-	repeat = 50
+	max_time = 800
+	repeat = 20
 	M = np.zeros((len(array_L), repeat))
 	for i in range(1, len(array_L)):
 	    for j in range(0, repeat):
@@ -96,7 +98,7 @@ def average_lifetime():
 	            X[t,:]=new_states
 
 	            if am_done(new_states):
-	                M[i,j]=t
+	                M[i,j]=t-1
 	                break
 
 
@@ -104,14 +106,36 @@ def average_lifetime():
 	average = np.mean(M, axis = 1)
 	deviation = np.std(M, axis = 1)
 
+	plt.ylabel(r'Steps, n', fontsize = 20)
+	plt.xlabel(r'Number of Individuals, L', fontsize = 20)
+	plt.title(r'Wright-Fisher steps to stationary distribution.', fontsize = 20)
 
-	plt.figure(figsize = (20,8))
-	plt.ylabel(r'Steps (n) til absorption state', fontsize = 20)
-	plt.xlabel(r'Number of Individuals', fontsize = 20)
-	plt.title(r'Steps (n) to reach stationary distribution', fontsize = 20)
 
-	plt.errorbar(array_L, average, yerr = deviation, fmt = 'o', mew = 4, label = 'steps (n) stationary distribution \nwith 1 std')
-	plt.legend(loc='upper left', fontsize = 20)
+	reciprocals = []
+
+	for sd in deviation:
+		if sd>0.1:
+			reciprocals.append(1/sd)
+		else:
+			reciprocals.append(100)
+
+	# Weight to 1/sd
+	fit = np.polyfit(array_L, average,1,w=reciprocals)
+	fit_fn = np.poly1d(fit)
+
+	print(fit)
+
+	plt.plot(array_L, fit_fn(array_L), label=r"Linear fit n={:+.2f}L".format(fit[0]))
+	
+	plt.errorbar(array_L, average, yerr = deviation, fmt = 'o', markersize=2, mew = 4, label = 'steps (n) until stationary distribution \nwith 1 std')
+	plt.legend(loc='upper left')
 	plt.grid()
 
-simulation_2()
+	plt.savefig("Wright_Fisher_absorption")
+
+	plt.show()
+
+
+
+average_lifetime()
+
