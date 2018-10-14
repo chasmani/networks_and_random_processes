@@ -229,6 +229,11 @@ $h_L^L = 1 = a + b(\frac{q}{p})^L$
 
 Subtracting the first equation from the second equation, and solving for b:
 
+$b = \dfrac{1}{(\frac{q}{p})^{L}-\frac{q}{p}})$
+
+$a = \dfrac{-1}{(\frac{q}{p})^{L-1}-1}$
+
+
 \subsection{Part C - simulations}
 
 A simple random walk with L=10 and closed boundary conditions was simulated 500 times, with $p=0.6$ and starting at x=1 at t=0.
@@ -416,6 +421,38 @@ Figures 10 and 11 show the empirical tail of $Z_n$ at timesteps $n=10$ and $n=10
 Figure shows the emprical tail of the data compared to the theoretical survival function, defined as 1 minus the cumulative distribution function.
 
 
+\subsection{Part f}
+
+As $n-> \infty$, the $E(Z_n)$ remains at 1 but the variance continues to grow, so $Z_n$ can be found anywhere. The distribution of $Z_n$ is flattened out as n grows, and so there is not a unique stationary distribution and the process is not ergodic. 
+
+By the law of large numbers, the emprical average
+
+$\hat{\mu}^M = \frac{1}{M} \sum_{i=1}^{M}Z_n^i -> E(Z_n) \text{ as } M -> \infty$
+
+$E(Z_n) = 1$
+
+Therefore, as $M -> \infty$, the empricial average should converge to 1 for fixed n.
+
+At very large n, the expected value of $Z_n$ is still 1, so for fixed finite M  
+
+$\hat{\mu}_n^M -> \frac{1}{M} \text{ as } n -> \infty$
+
+\bigskip
+
+The limits do not commute
+
+$\lim\limits_{n\to\infty} \lim\limits_{M\to\infty} \hat{\mu}_n^M \neq \lim\limits_{M\to\infty} \lim\limits_{m\to\infty} \hat{\mu}_n^M$
+
+$\lim\limits_{n\to\infty} 1 \neq \lim\limits_{M\to\infty} \frac{1}{M}$
+
+$1 \neq 0$
+ 
+\bigskip
+
+The limit of $\bar{\mu}_N$ as $N\to\infty$ is equivalent to the right hand side of the previous limit equation, so is converges to 0. Thie does not contradict the ergdoic theorem, which would suggest it converges to 1, because there is not a unique stationary distribution and so the Ergdoic theorem does not apply. 
+ 
+
+
 
 
 \section{Question 3}
@@ -428,20 +465,19 @@ $T = \{X_0(1), X_0(2), . . . , X_0(L)\}$
 
 Each individual can have a type of any element in that set. This gives a total state space of size $L^2$. In mathematical notation:
 
-$X(i) \in T \forall i \in \{1,2,...,L\}$ 
+$X(i) \in T \quad \forall \, i \in \{1,2,...,L\}$ 
 
 
-$X(i) \in \{X_0(1), X_0(2), . . . , X_0(L)\} \forall i \in \{1,2,...,L\}$ 
+$X(i) \in \{X_0(1), X_0(2), . . . , X_0(L)\} \quad \forall \, i \in \{1,2,...,L\}$ 
 
-$X(i) \in X_0(j) \text{ where } \ j \in \{1,2,...,L\} \forall i \in\{1,2,...,L\}$ 
-
+$X(i) \in X_0(j) \text{ where } \ j \in \{1,2,...,L\} \quad \forall \, i \in\{1,2,...,L\}$ 
 
 
 The process is not irreducible, as once a type goes extinct it stays extinct, and so not every state can be reached from every other state.
 
 The stationary distributions are where all individuals are of one type i.e. all $X(i)$ are equal to the same one of the initial types $X_0(j)$. In mathematical notation:
 
-$ \forall X(i) : X(i) = X_0(j) \text{ where } j \in \{1,2,..,L\}$  
+$ X(i) = X_0(j) \text{ where } j \in \{1,2,..,L\}$
 
 \subsection{Part b}
 
@@ -451,7 +487,7 @@ The future state of the process depends only on the current state at each time s
 
 The state space is 
 
-$N_i \in \{0,1,...,L\} $ 
+$N \in \{0,1,...,L\} $ 
 
 For each type, there can be an integer number of individuals of that type between 0 and L. 
 
@@ -463,7 +499,7 @@ $p(X_{t+1}(i) = j) = N_t(j)/L$
 
 So the transition probabilites for $N_t+1$ are given by a binomial distribution:
 
-$p(N_{t+1}(j) = k) = {L \choose k}(\frac{N_t(j)}{L})^k(1-\frac{N_t(j)}{L})^{L-k}$
+$p(N_{t+1}(j) = k) = {L \choose k}(\frac{N_t(j)}{L})^k(1-\frac{N_t(j)}{L})^{L-k} \text{ , } \quad k=0,1,...,L$
 
 The process is not irreducible, if the number of indiviudals of the given species reaches zero, then it is extinct and can never grow again above zero. If the number of individuals reaches L, then this species is the only species left and will always remain so. 
 
@@ -491,6 +527,7 @@ $\pi_{\infty} = [1-\frac{1}{L},0,...,0,\frac{1}{L}]$
 
 The process is not irreducible, as once a state has $N_i = 0$ for any i, i.e. a type goes extinct, the state space where $N_i >0$ is no longer accessible.
 
+
 \subsection{Part C - Simulations}
 
 \begin{figure}[H]
@@ -498,21 +535,17 @@ The process is not irreducible, as once a state has $N_i = 0$ for any i, i.e. a 
 \small{Figure 12. Dynamics of Wright-Fisher model of population dynamics with $L=100$ individuals of unique type at generation $t=0$.}
 \end{figure}
 
+
 In this simulation there is only one type left after about 260 generations. In the earlier generations, the number of types is quickly reduced as types go extinct. In this simulation there are only 3 types left after about 70 generations. 
 
 The probability of any particular type going extinct in the next generation is
 
 $p(N_{t+1}(j) = 0) = (1-\frac{N_t(j)}{L})^{L}$
 
-If there is only one individual left, as in generation 0, then this is approximately $37%$. In later generations, there are often many individuals of a surviving type, and so the chance of that type going extinct is lower, but non-zero.
 
-$b = \dfrac{1}{(\frac{q}{p})^{L}-\frac{q}{p}})$
-
-$a = \dfrac{-1}{(\frac{q}{p})^{L-1}-1}$
+If there is only one individual left, as in generation 0, then this is approximately 0.37. In later generations, there are often many individuals of a surviving type, and so the chance of that type going extinct is lower, but non-zero.
 
 While there is more than one type, there is always a probability that one or more of the types will go extinct in the following generation. So over time the number of unique generations reduces. Given enough time, the number of types will always go to 1. 
-
-
 
 
 
