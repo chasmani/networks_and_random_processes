@@ -135,7 +135,5 @@ def average_lifetime():
 
 	plt.show()
 
-
-
 average_lifetime()
 
