@@ -229,12 +229,6 @@ $h_L^L = 1 = a + b(\frac{q}{p})^L$
 
 Subtracting the first equation from the second equation, and solving for b:
 
-$b = \dfrac{1}{(\frac{q}{p})^{L}-\frac{q}{p}})$
-
-$a = \dfrac{-1}{(\frac{q}{p})^{L-1}-1}$
-
-NOT SURE ABOUT THIS LAST PART - CHECK ON MONDAY AGAINST SOMEONE ELSE'S ANSWER
-
 \subsection{Part C - simulations}
 
 A simple random walk with L=10 and closed boundary conditions was simulated 500 times, with $p=0.6$ and starting at x=1 at t=0.
@@ -297,7 +291,7 @@ where $\xi \sim N(0,1)$
 
 \subsection{Part B - distribution of $Y_n$}
 
-$Y_n \sim N(n\mu, n\sigma^2)$
+$Y_n \sim N(n\mu, n\sigma^2) \text { for } n \geq 0$
 
 $Y_n$ is normally distributed with mean equal to $n\mu$, where $\mu$ is the mean of the random variable $X$, and with variance $n\sigma^2$, where $\sigma^2$ is the variance of the random variable $X$. 
 
@@ -511,6 +505,10 @@ The probability of any particular type going extinct in the next generation is
 $p(N_{t+1}(j) = 0) = (1-\frac{N_t(j)}{L})^{L}$
 
 If there is only one individual left, as in generation 0, then this is approximately $37%$. In later generations, there are often many individuals of a surviving type, and so the chance of that type going extinct is lower, but non-zero.
+
+$b = \dfrac{1}{(\frac{q}{p})^{L}-\frac{q}{p}})$
+
+$a = \dfrac{-1}{(\frac{q}{p})^{L-1}-1}$
 
 While there is more than one type, there is always a probability that one or more of the types will go extinct in the following generation. So over time the number of unique generations reduces. Given enough time, the number of types will always go to 1. 
 
