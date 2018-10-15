@@ -423,6 +423,24 @@ Figure shows the emprical tail of the data compared to the theoretical survival 
 
 \subsection{Part f}
 
+\subsubsection{Ergodicity of $Z_n$}
+
+$X_n \sim N(-0.02, 0.2^2) \text{ and } Y_n = \sum_i^nX_n \text{ and } Z_n = exp(Y_n)$
+
+$\mu_x < 0$, therefore as $n \to \infty$,  $Y_n \to -\infty$, $Z_n \to 0$
+
+
+
+
+
+With a non-zero starting distribution, the distribution will flatten with time as the variance scales with timesteps. And so there can be no stationary non-zero distribution. 
+
+The only distribution that might apply is the delta function at zero, this will remain zero as the recurrence relation is
+
+$Z_{n+1} = Z_nexp(X_{n+1})$
+
+There may be some argument over whether 0 is in the state space of $Z_n$, as it would require $X_n = -\infty$.
+
 As $n-> \infty$, the $E(Z_n)$ remains at 1 but the variance continues to grow, so $Z_n$ can be found anywhere. The distribution of $Z_n$ is flattened out as n grows, and so there is not a unique stationary distribution and the process is not ergodic. 
 
 By the law of large numbers, the emprical average
@@ -439,13 +457,15 @@ $\hat{\mu}_n^M -> \frac{1}{M} \text{ as } n -> \infty$
 
 \bigskip
 
-The limits do not commute
+Assuming that the limits do commute:
 
-$\lim\limits_{n\to\infty} \lim\limits_{M\to\infty} \hat{\mu}_n^M \neq \lim\limits_{M\to\infty} \lim\limits_{m\to\infty} \hat{\mu}_n^M$
+$\lim\limits_{n\to\infty} \lim\limits_{M\to\infty} \hat{\mu}_n^M = \lim\limits_{M\to\infty} \lim\limits_{m\to\infty} \hat{\mu}_n^M$
 
-$\lim\limits_{n\to\infty} 1 \neq \lim\limits_{M\to\infty} \frac{1}{M}$
+$\lim\limits_{n\to\infty} 1 = \lim\limits_{M\to\infty} \frac{1}{M}$
 
-$1 \neq 0$
+$1 = 0$
+ 
+we reach a contradiction and so the limits do not commute.  
  
 \bigskip
 
