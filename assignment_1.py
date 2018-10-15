@@ -103,14 +103,21 @@ def plot_distribution_1_realisation_500_steps(title):
 	p = 0.6
 
 	positions = simple_random_walk(p, 500, 10, "closed")
-	plt.hist(positions, density=True, label="Empirical density distribution")
+	np_positions = np.array(positions)
+	scaled_positions = (np_positions-1) * 10/9
+
+
+
+
+
+	plt.hist(scaled_positions, density=True, label="Empirical density distribution")
 	
 
 	states = [1,2,3,4,5,6,7,8,9,10]
 	stat_dist = [(p/(1-p))**x for x in states]
 	total_stat_dist = sum(stat_dist)
 	stat_dist_norm = [x/total_stat_dist for x in stat_dist]
-	plt.plot(states, stat_dist_norm, label="Theoretical stationary distribution", color="red")
+	plt.plot(states, stat_dist_norm, 'ro',label="Theoretical stationary distribution")
 	
 	plt.legend(loc=2, prop={'size': 6})
 
@@ -118,7 +125,6 @@ def plot_distribution_1_realisation_500_steps(title):
 	plt.xlabel('x', fontsize = 10)
 	plt.ylabel('frequency', fontsize = 12)
 	plt.savefig('500_steps.png')
-
 
 	
 def plot_4_realisations():
@@ -151,6 +157,7 @@ def plot_4_realisations():
 
 	plt.show()
 
+plot_4_realisations()
 
 def one_realisation(mu, sigma, tmax):
 
