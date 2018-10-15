@@ -69,27 +69,33 @@ def plot_distribution_500_realisations(total_steps):
 
 	p = 0.6
 	realisations = 500
-	observations = []
+	observations = np.zeros(realisations)
 	for i in range(realisations):
 		final_position = simple_random_walk(p, total_steps, 10, "closed")[-1]
-		observations.append(final_position)
+		observations[i] = final_position
+
+
+	scaled_observations = (observations-1) * 10/9
 
 	
-	plt.hist(observations, density=True, label="Emprical density distribution")
 	states = [1,2,3,4,5,6,7,8,9,10]
 	stat_dist = [(p/(1-p))**x for x in states]
 	total_stat_dist = sum(stat_dist)
 	stat_dist_norm = [x/total_stat_dist for x in stat_dist]
-	plt.plot(states, stat_dist_norm, label="Theoretical stationary distribution")
+	plt.hist(scaled_observations, density=True, bins=10, label="Empirical density distribution")
+	plt.plot(states, stat_dist_norm, 'ro', label="Theoretical stationary distribution")
+	
 	plt.title('Closed SRW (L=10) - {} timesteps'.format(total_steps,p), fontsize = 16)
 
 	plt.legend()
 	plt.xlabel('x', fontsize = 20)
 	plt.ylabel('frequency', fontsize = 20)
 
-	plt.savefig('empirical_closed_srw_distn_after_{}_steps.png'.format(total_steps))
+	#plt.savefig('empirical_closed_srw_distn_after_{}_steps.png'.format(total_steps))
 	
 	plt.show()
+
+plot_distribution_500_realisations(100)
 
 def plot_distribution_1_realisation_500_steps(title):
 
@@ -195,7 +201,7 @@ def plot_empirical_results():
 	results = empirical_results(mu,sigma,tmax)
 		
 	empirical_averages = results.mean(axis=0)
-	empirical_sds = results.std(axis=0)
+	empirical_sds = results.std(axis=0)/np.sqrt(500)
 	
 	plt.figure(0)
 	plt.errorbar(range(tmax), empirical_averages, yerr=empirical_sds, label = r'Emprical Average and standard deviation')
@@ -213,6 +219,7 @@ def plot_empirical_results():
 	
 	plt.show()
 	
+
 
 def box_plots():
 	
@@ -322,7 +329,36 @@ def empirical_pdf_at_timestep(timestep):
 
 	plt.show()
 
-empirical_pdf_at_timestep(10)
+
+def empirical_pdf_at_timestep_b(timestep):
+
+	mu = 0
+	sigma = 0.2
+	tmax = 100
+
+
+	
+	results = empirical_results(mu,sigma,tmax)
+	timestep_results = results[:,[timestep-1]]
+	#plt.hist(timestep_results, density=True)
+	
+	# KDE plot 1
+	kde = stats.gaussian_kde(timestep_results.reshape(500))
+	xx = np.linspace(0,10,1000)
+	#plt.plot(xx, kde(xx))
+	
+	# KDE plot 2
+	sns.kdeplot(timestep_results.reshape(500), gridsize=10000 )
+	
+	# Theoretical plot 1
+	rv = stats.lognorm([(sigma)*(timestep**0.5)], scale=np.exp(timestep*mu))
+	plt.plot(xx, rv.pdf(xx))
+	
+	x1,x2,y1,y2 = plt.axis()
+	plt.axis((0,10,0,0.4))
+
+	plt.show()
+
 
 
 def log_normal_pdf(z_input, mu, sigma, timestep):
@@ -406,4 +442,3 @@ def empirical_tail(timestep):
 	plt.savefig('empirical_tail_{}.png'.format(timestep))	
 
 	plt.show()
-

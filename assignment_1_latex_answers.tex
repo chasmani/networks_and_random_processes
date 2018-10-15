@@ -351,7 +351,7 @@ $Z_n$ was simulated 500 times over 100 timesteps with $\mu_x=0$ and $\sigma_x=0.
 \subsubsection{Empirical Average}
 
 \begin{figure}[H]
-\includegraphics[scale=0.5]{empirical_average_1.png} 
+\includegraphics[scale=0.5]{empirical_average_a.png} 
 \small{Figure 5. The emprical average of 500 simulations of $Z_n$ as a funciton of n over 100 timesteps. }
 \end{figure}
 
@@ -376,7 +376,13 @@ Figure 6 shows the ranges of empirical data at 10 and 100 timesteps. The distrib
 
 Figure 7 shows a reasonably close fit between the empirical kernel density estimate and the theoretical probability density function for $Z_n$ at $n=10$ timesteps for 500 realisations. The closeness of the fit improves with more realisations.
 
-TO DO - ADD IN FIG 8 FROM UNI LAPTOP
+
+\begin{figure}[H]
+\includegraphics[scale=0.3]{empirical_pdf_kde_100_a.png} 
+\small{Figure 8. Empirical kernel density estimation and theoretical probability density fucntion for $Z_n$ with $\mu_x=0$ and $\sigma=0.2$ at $n=100$ timesteps over 500 realisations.}
+\end{figure}
+
+Figure shows the emprical kernel density estimate and the theoretical probability density function for $Z_n$ at $n=100$ timesteps for 500 realisations. The fit is reasinable close for $Z_n > 1$. Below $Z_n=1$, the theoretical distribution is much higher than the KDE. This is most likely due to the KDE smoothing function avoiding large fluctuations. 
 
 
 \subsubsection{Ergodic Average}
@@ -429,19 +435,15 @@ $X_n \sim N(-0.02, 0.2^2) \text{ and } Y_n = \sum_i^nX_n \text{ and } Z_n = exp(
 
 $\mu_x < 0$, therefore as $n \to \infty$,  $Y_n \to -\infty$, $Z_n \to 0$
 
-
-
-
-
 With a non-zero starting distribution, the distribution will flatten with time as the variance scales with timesteps. And so there can be no stationary non-zero distribution. 
 
-The only distribution that might apply is the delta function at zero, this will remain zero as the recurrence relation is
+The only stationary distribution is the delta function at zero, $\delta(0)$ this will remain zero as the recurrence relation is
 
 $Z_{n+1} = Z_nexp(X_{n+1})$
 
-There may be some argument over whether 0 is in the state space of $Z_n$, as it would require $X_n = -\infty$.
+The process is ergodic.
 
-As $n-> \infty$, the $E(Z_n)$ remains at 1 but the variance continues to grow, so $Z_n$ can be found anywhere. The distribution of $Z_n$ is flattened out as n grows, and so there is not a unique stationary distribution and the process is not ergodic. 
+\bigskip
 
 By the law of large numbers, the emprical average
 
@@ -453,7 +455,7 @@ Therefore, as $M -> \infty$, the empricial average should converge to 1 for fixe
 
 At very large n, the expected value of $Z_n$ is still 1, so for fixed finite M  
 
-$\hat{\mu}_n^M -> \frac{1}{M} \text{ as } n -> \infty$
+$\hat{\mu}_n^M -> 0 \text{ as } n -> \infty$
 
 \bigskip
 
@@ -461,7 +463,7 @@ Assuming that the limits do commute:
 
 $\lim\limits_{n\to\infty} \lim\limits_{M\to\infty} \hat{\mu}_n^M = \lim\limits_{M\to\infty} \lim\limits_{m\to\infty} \hat{\mu}_n^M$
 
-$\lim\limits_{n\to\infty} 1 = \lim\limits_{M\to\infty} \frac{1}{M}$
+$\lim\limits_{n\to\infty} 1 = \lim\limits_{M\to\infty} 0$
 
 $1 = 0$
  
@@ -469,10 +471,7 @@ we reach a contradiction and so the limits do not commute.
  
 \bigskip
 
-The limit of $\bar{\mu}_N$ as $N\to\infty$ is equivalent to the right hand side of the previous limit equation, so is converges to 0. Thie does not contradict the ergdoic theorem, which would suggest it converges to 1, because there is not a unique stationary distribution and so the Ergdoic theorem does not apply. 
- 
-
-
+The limit of $\bar{\mu}_N$ as $N\to\infty$ is equivalent to the right hand side of the previous limit equation, which converges to 0. This does not contradict the ergdoic theorem because the empirical average converges to the stationary distribution at zero. The ergodic theorem applies even though the function is not bounded.  
 
 
 \section{Question 3}
@@ -556,26 +555,41 @@ The process is not irreducible, as once a state has $N_i = 0$ for any i, i.e. a 
 \end{figure}
 
 
-In this simulation there is only one type left after about 260 generations. In the earlier generations, the number of types is quickly reduced as types go extinct. In this simulation there are only 3 types left after about 70 generations. 
+Figure shows a heatmap of a simulation of Wright-Fisher dynamics with 100 individuals.  The process reaches fixation, with only one unique type left, after about 260 generations. There are 2 unique types left after about 120 generations and 3 unique types after about 70 generations. 
+
+\begin{figure}[H]
+\includegraphics[scale=0.6]{Wright-Fisher-70_a.png} 
+\small{Figure 12. Dynamics of Wright-Fisher model of population dynamics with $L=100$ individuals of unique type at generation $t=0$, up to timestep $t=70$.}
+\end{figure}
+ 
+Figure shows the same simulation up to generation 70 only. In the earlier generations, the number of types is quickly reduced as types go extinct.  
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{Wright-Fisher_trend_a.png} 
+\small{Figure 13. Number of surviving unique types for Wright-Fisher model as a function of generation, t, for one simulation.}
+\end{figure}
+
+Figure shows the number of surviving unique types as a function of generation for the same simulation. The number of 
+
+
 
 The probability of any particular type going extinct in the next generation is
 
 $p(N_{t+1}(j) = 0) = (1-\frac{N_t(j)}{L})^{L}$
 
-
-If there is only one individual left, as in generation 0, then this is approximately 0.37. In later generations, there are often many individuals of a surviving type, and so the chance of that type going extinct is lower, but non-zero.
+If there is only one individual of a type, as in generation 0, then this is approximately 0.37. In later generations, there are often many individuals of a surviving type, and so the chance of that type going extinct is lower, but non-zero.
 
 While there is more than one type, there is always a probability that one or more of the types will go extinct in the following generation. So over time the number of unique generations reduces. Given enough time, the number of types will always go to 1. 
 
 
 \begin{figure}[H]
-\includegraphics[scale=0.5]{Wright_Fisher_absorption_a.png} 
-\small{Figure 13. Average time to absorption for Wright-Fisher model as a function of number of individuals. Each L was simulated 20 times, with the empirical average and 1 standard deviation shown.}
+\includegraphics[scale=0.5]{Wright_Fisher_fixation_a.png} 
+\small{Figure 13. Average time to fixation for Wright-Fisher model as a function of number of individuals. Each L was simulated 20 times, with the empirical average and 1 standard deviation shown.}
 \end{figure}
 
 Figure shows an empirical simulation of the time to absorption, $n_{abs}$ as a function of the number of individuals. There appears to be a linear relationship, approximately of the form:
 
-$n_{abs} = 1.84L $
+$n_{abs} = 1.82L $
 
 This is an approximate relationship and further work should be done to determine the confidence interval.
 

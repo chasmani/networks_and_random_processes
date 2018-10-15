@@ -45,11 +45,37 @@ def simulation_1():
 
 def simulation_2():
 
-	max_time = 300
+	max_time = 1000
 	L = 100
+	realisations = 10
 
-	X = simulate_results(max_time, L)
+	for realisation in realisations:
 
+		X = simulate_results(max_time, L)
+		unique_counts = np.zeros(max_time)
+		for t in range(max_time):		
+			unique_counts[t]=(len(np.unique(X[t,:])))
+
+	
+		print(X.shape)
+
+
+	
+	
+	plt.figure()
+	plt.plot(range(max_time), unique_counts)
+	plt.ylabel(r'Surviving Types', fontsize = 20)
+	plt.xlabel(r'Generation, t', fontsize = 20)
+	plt.title(r'Wright-Fisher Dynamics. $L={}$, $T={}$'.format(L,max_time), fontsize=22)
+	#plt.savefig('Wright-Fisher_trend.png')	
+
+	plt.xscale("log")
+
+
+
+	plt.show()
+	"""
+	
 	sns.set_palette("Set1", 8, .75)
 
 	plt.figure()
@@ -60,8 +86,10 @@ def simulation_2():
 	plt.title(r'Wright-Fisher Dynamics. $L={}$, $T={}$'.format(L,max_time), fontsize=22)
 	#plt.locator_params(axis='y', nbins=50)
 
-	plt.savefig('Wright-Fisher.png')	
+	plt.savefig('Wright-Fisher-70.png')	
 	plt.show()
+	
+	"""
 
 
 
@@ -79,6 +107,7 @@ def average_lifetime():
 	L = 200
 
 	array_L = np.arange(1,L)
+
 	max_time = 800
 	repeat = 20
 	M = np.zeros((len(array_L), repeat))
@@ -104,7 +133,7 @@ def average_lifetime():
 
 
 	average = np.mean(M, axis = 1)
-	deviation = np.std(M, axis = 1)
+	deviation = np.std(M, axis = 1)/np.sqrt(repeat)
 
 	plt.ylabel(r'Steps, n', fontsize = 20)
 	plt.xlabel(r'Number of Individuals, L', fontsize = 20)
@@ -120,6 +149,7 @@ def average_lifetime():
 			reciprocals.append(100)
 
 	# Weight to 1/sd
+	
 	fit = np.polyfit(array_L, average,1,w=reciprocals)
 	fit_fn = np.poly1d(fit)
 
@@ -131,9 +161,8 @@ def average_lifetime():
 	plt.legend(loc='upper left')
 	plt.grid()
 
-	plt.savefig("Wright_Fisher_absorption")
+	plt.savefig("Wright_Fisher_fixation")
 
 	plt.show()
 
 average_lifetime()
-
