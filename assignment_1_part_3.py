@@ -46,36 +46,43 @@ def simulation_1():
 def simulation_2():
 
 	max_time = 1000
-	L = 100
-	realisations = 10
+	L = 200
+	realisations = 100
 
-	for realisation in realisations:
+	all_results = np.zeros((realisations, max_time))
+
+	for realisation in range(realisations):
 
 		X = simulate_results(max_time, L)
-		unique_counts = np.zeros(max_time)
+		
 		for t in range(max_time):		
-			unique_counts[t]=(len(np.unique(X[t,:])))
-
-	
-		print(X.shape)
+			all_results[realisation,t]=(len(np.unique(X[t,:])))
 
 
 	
+	print(all_results.shape)
+
+	average = np.mean(all_results, axis = 0)
+	print(average.shape)
+	deviation = np.std(all_results, axis = 0)
+	print(deviation.shape)
+
 	
 	plt.figure()
-	plt.plot(range(max_time), unique_counts)
+	plt.plot(range(max_time), average)
 	plt.ylabel(r'Surviving Types', fontsize = 20)
 	plt.xlabel(r'Generation, t', fontsize = 20)
 	plt.title(r'Wright-Fisher Dynamics. $L={}$, $T={}$'.format(L,max_time), fontsize=22)
-	#plt.savefig('Wright-Fisher_trend.png')	
+	
 
 	plt.xscale("log")
+	plt.yscale("log")
 
-
+	plt.savefig('Wright-Fisher_trend.png')
 
 	plt.show()
-	"""
 	
+	"""
 	sns.set_palette("Set1", 8, .75)
 
 	plt.figure()
@@ -91,7 +98,7 @@ def simulation_2():
 	
 	"""
 
-
+simulation_2()
 
 def am_done(v):
     '''Return true if all elements of v the same. Else false.'''
@@ -164,5 +171,3 @@ def average_lifetime():
 	plt.savefig("Wright_Fisher_fixation")
 
 	plt.show()
-
-average_lifetime()

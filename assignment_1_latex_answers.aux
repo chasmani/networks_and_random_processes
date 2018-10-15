@@ -5,6 +5,14 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.2}Case 2 - Closed}{1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Part B - Absorbing}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Part C - simulations}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The frequency distribution over 500 different realisations after 10 timesteps.}}{5}}
+\newlabel{fig:10_steps}{{1}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The frequency distribution over 500 different realisations after 100 timesteps.}}{6}}
+\newlabel{fig:100_steps_a}{{2}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The frequency distribution of states over 500 timesteps of 1 single realisation.}}{7}}
+\newlabel{fig:500_steps}{{3}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The frequency distribution of states over 500 timesteps of 4 seperate single realisations. }}{8}}
+\newlabel{fig:500_steps_4}{{4}{8}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Question 2}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Part A}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Part B - distribution of $Y_n$}{9}}
@@ -12,16 +20,38 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Derivation of pdf}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Part D}{9}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}Empirical Average}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The empirical average of 500 simulations of $Z_n$ as a funciton of n over 100 timesteps. }}{10}}
+\newlabel{fig:empirical_avg}{{5}{10}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}Boxplots}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3}Emprical PDF and theoretical PDF}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.4}Ergodic Average}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Part E - Empirical Tail}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Part f}{15}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.1}Ergodicity of $Z_n$}{15}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Question 3}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Part a}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Part b}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}State space}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Transition Probabilities}{17}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Stationary Distributions}{17}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Part C - Simulations}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The empirical ranges of $Z_n$ over 500 realisations at n=10 and n=100. The whiskers are set at $1.5 \times IQR$ where IQR is the interquartile range.}}{11}}
+\newlabel{fig:boxplots}{{6}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3}Empirical PDF and theoretical PDF}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Empirical kernel density estimation and theoretical probability density fucntion for $Z_n$ with $\mu _x=0$ and $\sigma =0.2$ at $n=10$ timesteps over 500 realisations.}}{12}}
+\newlabel{fig:kde_10}{{7}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Empirical kernel density estimation and theoretical probability density fucntion for $Z_n$ with $\mu _x=0$ and $\sigma =0.2$ at $n=100$ timesteps over 500 realisations.}}{13}}
+\newlabel{fig:kde_100}{{8}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.4}Ergodic Average}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Ergodic average of $Z_n$ for a single realisation as a function of total timesteps, N. $\mu _x=0$ and $\sigma _x=0.2$.}}{14}}
+\newlabel{fig:ergodic}{{9}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Part E - Empirical Tail}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Empirical tail of $Z_n$ compared to the theoretical prediction of the survival function, 1-Cumulative Density Function. At timestep 10. 500 realisations, $\mu _x=-0.02$, $\sigma _x=0.02$.}}{15}}
+\newlabel{fig:tail_10}{{10}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Empirical tail of $Z_n$ compared to the theoretical prediction of the survival function, 1-Cumulative Density Function. At timestep 100. 500 realisations, $\mu _x=-0.02$, $\sigma _x=0.02$.}}{16}}
+\newlabel{fig:tail_100}{{11}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Part f}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.1}Ergodicity of $Z_n$}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Question 3}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Part a}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Part b}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}State space}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Transition Probabilities}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Stationary Distributions}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Part C - Simulations}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Dynamics of Wright-Fisher model of population dynamics with $L=100$ individuals of unique type at generation $t=0$.}}{19}}
+\newlabel{fig:wf_heat_full}{{12}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Dynamics of Wright-Fisher model of population dynamics with $L=100$ individuals of unique type at generation $t=0$, up to timestep $t=70$.}}{20}}
+\newlabel{fig:wf_heat_70}{{13}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Number of surviving unique types for Wright-Fisher model as a function of generation, t, averages over 100 realisations.}}{21}}
+\newlabel{fig:wf_trend}{{14}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Average time to fixation for Wright-Fisher model as a function of number of individuals. Each L was simulated 20 times, with the empirical average and 1 standard deviation shown.}}{22}}
+\newlabel{fig:wf_fixation}{{15}{22}}

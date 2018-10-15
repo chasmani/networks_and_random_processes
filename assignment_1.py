@@ -67,7 +67,7 @@ def simple_random_walk(p, total_steps, length, boundary_conditions):
 
 def plot_distribution_500_realisations(total_steps):
 
-	p = 0.6
+	p = 0.65
 	realisations = 500
 	observations = np.zeros(realisations)
 	for i in range(realisations):
@@ -85,7 +85,7 @@ def plot_distribution_500_realisations(total_steps):
 	plt.hist(scaled_observations, density=True, bins=10, label="Empirical density distribution")
 	plt.plot(states, stat_dist_norm, 'ro', label="Theoretical stationary distribution")
 	
-	plt.title('Closed SRW - {} timesteps, L=10, p=0.6'.format(total_steps,p), fontsize = 16)
+	plt.title('Closed SRW - {} timesteps, L=10, p=0.65'.format(total_steps,p), fontsize = 16)
 
 	plt.legend()
 	plt.xlabel('x', fontsize = 20)
@@ -96,10 +96,11 @@ def plot_distribution_500_realisations(total_steps):
 	plt.show()
 
 
+
 def plot_distribution_1_realisation_500_steps(title):
 
 
-	p = 0.6
+	p = 0.65
 
 	positions = simple_random_walk(p, 500, 10, "closed")
 	np_positions = np.array(positions)
@@ -116,13 +117,15 @@ def plot_distribution_1_realisation_500_steps(title):
 	
 	plt.legend(loc=2, prop={'size': 6})
 
-	#plt.title('Closed SRW. 1 realisation. 500 timesteps, L=10, p=0.6')
+	plt.title('Closed SRW. 1 realisation. 500 timesteps, L=10, p=0.65')
 
 	plt.xlabel('x', fontsize = 10)
 	plt.ylabel('frequency', fontsize = 12)
-	#plt.savefig('500_steps.png')
+	plt.savefig('500_steps.png')
 
-	#plt.show()
+	plt.show()
+
+plot_distribution_1_realisation_500_steps(1)
 
 def plot_4_realisations():
 
@@ -261,7 +264,6 @@ def box_plots():
 
 	plt.show()
 
-box_plots()
 
 def empirical_pdf_at_timestep_original(timestep):
 
