@@ -85,17 +85,16 @@ def plot_distribution_500_realisations(total_steps):
 	plt.hist(scaled_observations, density=True, bins=10, label="Empirical density distribution")
 	plt.plot(states, stat_dist_norm, 'ro', label="Theoretical stationary distribution")
 	
-	plt.title('Closed SRW (L=10) - {} timesteps'.format(total_steps,p), fontsize = 16)
+	plt.title('Closed SRW - {} timesteps, L=10, p=0.6'.format(total_steps,p), fontsize = 16)
 
 	plt.legend()
 	plt.xlabel('x', fontsize = 20)
 	plt.ylabel('frequency', fontsize = 20)
 
-	#plt.savefig('empirical_closed_srw_distn_after_{}_steps.png'.format(total_steps))
+	plt.savefig('{}_steps.png'.format(total_steps))
 	
 	plt.show()
 
-plot_distribution_500_realisations(100)
 
 def plot_distribution_1_realisation_500_steps(title):
 
@@ -107,11 +106,7 @@ def plot_distribution_1_realisation_500_steps(title):
 	scaled_positions = (np_positions-1) * 10/9
 
 
-
-
-
 	plt.hist(scaled_positions, density=True, label="Empirical density distribution")
-	
 
 	states = [1,2,3,4,5,6,7,8,9,10]
 	stat_dist = [(p/(1-p))**x for x in states]
@@ -121,18 +116,20 @@ def plot_distribution_1_realisation_500_steps(title):
 	
 	plt.legend(loc=2, prop={'size': 6})
 
+	#plt.title('Closed SRW. 1 realisation. 500 timesteps, L=10, p=0.6')
 
 	plt.xlabel('x', fontsize = 10)
 	plt.ylabel('frequency', fontsize = 12)
-	plt.savefig('500_steps.png')
+	#plt.savefig('500_steps.png')
 
-	
+	#plt.show()
+
 def plot_4_realisations():
 
 	plt.rcParams['figure.figsize'] = [10, 6]
 
 	plt.figure(1)
-	plt.suptitle('Closed SRW (L=10)-4 seperate realisations with 500 timesteps', fontsize = 12)
+	plt.suptitle('Closed SRW. 4 seperate realisations. 500 timesteps, L=10, p=0.6', fontsize = 12)
 
 	plt.subplot(221)	
 	plt.axis((0,10,0,0.5))
@@ -151,13 +148,12 @@ def plot_4_realisations():
 
 	plt.axis((0,10,0,0.5))
 
-
-
 	plot_distribution_1_realisation_500_steps("d")
 
+	plt.savefig("500_steps_4.png")
 	plt.show()
 
-plot_4_realisations()
+
 
 def one_realisation(mu, sigma, tmax):
 
@@ -217,7 +213,7 @@ def plot_empirical_results():
 	plt.xlabel('n', fontsize=20)
 	plt.ylabel(r'$Z_n$', fontsize=20)
 
-	plt.title(r'Emprical Average of 500 realisations of $Z_n$ as a function of n')
+	plt.title(r'Emprical Average of $Z_n$. 500 realisations, $\mu_x=0$, $\sigma_x=0.2$')
 
 	plt.savefig('Emprical Average.png')
 
@@ -259,11 +255,13 @@ def box_plots():
 	ax2.set_yscale("log")
 
 
-	plt.suptitle("Box plots showing the emprical ranges at n=10 and n=100")
+	plt.suptitle(r"Box plots of $Z_n$ at n=10 and n=100. $\mu_x=0$, $\sigma_x=0.2$")
 	plt.savefig('box_plots.png')
 
 
 	plt.show()
+
+box_plots()
 
 def empirical_pdf_at_timestep_original(timestep):
 

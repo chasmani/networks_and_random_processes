@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  15 OCT 2018 16:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  15 OCT 2018 17:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -519,50 +519,51 @@ e
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-<10_steps_a.png, id=23, 433.62pt x 289.08pt>
-File: 10_steps_a.png Graphic file (type png)
-<use 10_steps_a.png>
-Package pdftex.def Info: 10_steps_a.png  used on input line 242.
-(pdftex.def)             Requested size: 346.89647pt x 231.2643pt.
+<10_steps_b.png, id=23, 462.528pt x 346.896pt>
+File: 10_steps_b.png Graphic file (type png)
+<use 10_steps_b.png>
+Package pdftex.def Info: 10_steps_b.png  used on input line 242.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
-Overfull \hbox (1.89647pt too wide) in paragraph at lines 242--244
+Overfull \hbox (25.02289pt too wide) in paragraph at lines 242--244
 [][]
  []
 
-<100_steps_a.png, id=25, 433.62pt x 289.08pt>
-File: 100_steps_a.png Graphic file (type png)
-<use 100_steps_a.png>
-Package pdftex.def Info: 100_steps_a.png  used on input line 249.
-(pdftex.def)             Requested size: 346.89647pt x 231.2643pt.
+[4]
+<100_steps_b.png, id=28, 462.528pt x 346.896pt>
+File: 100_steps_b.png Graphic file (type png)
+<use 100_steps_b.png>
+Package pdftex.def Info: 100_steps_b.png  used on input line 249.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
-Overfull \hbox (1.89647pt too wide) in paragraph at lines 249--251
+Overfull \hbox (25.02289pt too wide) in paragraph at lines 249--251
 [][]
  []
 
-[4 <./10_steps_a.png>]
-<500_steps_a.png, id=31, 433.62pt x 289.08pt>
-File: 500_steps_a.png Graphic file (type png)
-<use 500_steps_a.png>
-Package pdftex.def Info: 500_steps_a.png  used on input line 257.
-(pdftex.def)             Requested size: 346.89647pt x 231.2643pt.
+[5 <./10_steps_b.png>]
+<500_steps_c.png, id=34, 462.528pt x 346.896pt>
+File: 500_steps_c.png Graphic file (type png)
+<use 500_steps_c.png>
+Package pdftex.def Info: 500_steps_c.png  used on input line 257.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
-Overfull \hbox (1.89647pt too wide) in paragraph at lines 257--259
+Overfull \hbox (25.02289pt too wide) in paragraph at lines 257--259
 [][]
  []
 
-[5 <./100_steps_a.png>]
-<500_steps_b.png, id=36, 722.7pt x 433.62pt>
-File: 500_steps_b.png Graphic file (type png)
-<use 500_steps_b.png>
-Package pdftex.def Info: 500_steps_b.png  used on input line 262.
+[6 <./100_steps_b.png>]
+<500_steps_4_a.png, id=39, 722.7pt x 433.62pt>
+File: 500_steps_4_a.png Graphic file (type png)
+<use 500_steps_4_a.png>
+Package pdftex.def Info: 500_steps_4_a.png  used on input line 262.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 Overfull \hbox (16.3491pt too wide) in paragraph at lines 262--264
 [][]
  []
 
-[6 <./500_steps_a.png> <./500_steps_b.png>] [7]
-<empirical_average_a.png, id=50, 722.7pt x 433.62pt>
+[7 <./500_steps_c.png>] [8 <./500_steps_4_a.png>]
+<empirical_average_a.png, id=51, 722.7pt x 433.62pt>
 File: empirical_average_a.png Graphic file (type png)
 <use empirical_average_a.png>
 Package pdftex.def Info: empirical_average_a.png  used on input line 354.
@@ -572,7 +573,8 @@ Overfull \hbox (16.3491pt too wide) in paragraph at lines 354--356
 [][]
  []
 
-<box_plots_a.png, id=51, 722.7pt x 433.62pt>
+[9]
+<box_plots_a.png, id=57, 722.7pt x 433.62pt>
 File: box_plots_a.png Graphic file (type png)
 <use box_plots_a.png>
 Package pdftex.def Info: box_plots_a.png  used on input line 364.
@@ -582,8 +584,8 @@ Overfull \hbox (16.3491pt too wide) in paragraph at lines 364--366
 [][]
  []
 
-[8 <./empirical_average_a.png>]
-<empirical_pdf_kde_10_a.png, id=58, 722.7pt x 433.62pt>
+[10 <./empirical_average_a.png>]
+<empirical_pdf_kde_10_a.png, id=64, 722.7pt x 433.62pt>
 File: empirical_pdf_kde_10_a.png Graphic file (type png)
 <use empirical_pdf_kde_10_a.png>
 Package pdftex.def Info: empirical_pdf_kde_10_a.png  used on input line 373.
@@ -593,8 +595,8 @@ Overfull \hbox (16.3491pt too wide) in paragraph at lines 373--375
 [][]
  []
 
-[9 <./box_plots_a.png>]
-<empirical_pdf_kde_100_a.png, id=64, 1300.86pt x 578.16pt>
+[11 <./box_plots_a.png>]
+<empirical_pdf_kde_100_a.png, id=70, 1300.86pt x 578.16pt>
 File: empirical_pdf_kde_100_a.png Graphic file (type png)
 <use empirical_pdf_kde_100_a.png>
 Package pdftex.def Info: empirical_pdf_kde_100_a.png  used on input line 381.
@@ -604,8 +606,8 @@ Overfull \hbox (45.26102pt too wide) in paragraph at lines 381--383
 [][]
  []
 
-[10 <./empirical_pdf_kde_10_a.png> <./empirical_pdf_kde_100_a.png>]
-<ergodic_average_a.png, id=70, 462.528pt x 346.896pt>
+[12 <./empirical_pdf_kde_10_a.png> <./empirical_pdf_kde_100_a.png>]
+<ergodic_average_a.png, id=76, 462.528pt x 346.896pt>
 File: ergodic_average_a.png Graphic file (type png)
 <use ergodic_average_a.png>
 Package pdftex.def Info: ergodic_average_a.png  used on input line 391.
@@ -615,7 +617,7 @@ Overfull \hbox (25.02289pt too wide) in paragraph at lines 391--393
 [][]
  []
 
-<empirical_tail_10_a.png, id=71, 462.528pt x 346.896pt>
+<empirical_tail_10_a.png, id=77, 462.528pt x 346.896pt>
 File: empirical_tail_10_a.png Graphic file (type png)
 <use empirical_tail_10_a.png>
 Package pdftex.def Info: empirical_tail_10_a.png  used on input line 412.
@@ -625,8 +627,8 @@ Overfull \hbox (25.02289pt too wide) in paragraph at lines 412--414
 [][]
  []
 
-[11 <./ergodic_average_a.png>]
-<empirical_tail_100_a.png, id=76, 462.528pt x 346.896pt>
+[13 <./ergodic_average_a.png>]
+<empirical_tail_100_a.png, id=83, 462.528pt x 346.896pt>
 File: empirical_tail_100_a.png Graphic file (type png)
 <use empirical_tail_100_a.png>
 Package pdftex.def Info: empirical_tail_100_a.png  used on input line 418.
@@ -636,13 +638,13 @@ Overfull \hbox (25.02289pt too wide) in paragraph at lines 418--420
 [][]
  []
 
-[12 <./empirical_tail_10_a.png>] [13 <./empirical_tail_100_a.png>] [14]
+[14 <./empirical_tail_10_a.png>] [15 <./empirical_tail_100_a.png>] [16]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 521.
 
-<Wright-Fisher_a.png, id=89, 722.7pt x 433.62pt>
+<Wright-Fisher_a.png, id=95, 722.7pt x 433.62pt>
 File: Wright-Fisher_a.png Graphic file (type png)
 <use Wright-Fisher_a.png>
 Package pdftex.def Info: Wright-Fisher_a.png  used on input line 553.
@@ -652,8 +654,8 @@ Overfull \hbox (88.62334pt too wide) in paragraph at lines 553--555
 [][]
  []
 
-[15]
-<Wright-Fisher-70_a.png, id=93, 722.7pt x 433.62pt>
+[17]
+<Wright-Fisher-70_a.png, id=99, 722.7pt x 433.62pt>
 File: Wright-Fisher-70_a.png Graphic file (type png)
 <use Wright-Fisher-70_a.png>
 Package pdftex.def Info: Wright-Fisher-70_a.png  used on input line 561.
@@ -663,8 +665,8 @@ Overfull \hbox (88.62334pt too wide) in paragraph at lines 561--563
 [][]
  []
 
-[16 <./Wright-Fisher_a.png>]
-<Wright-Fisher_trend_a.png, id=98, 722.7pt x 433.62pt>
+[18 <./Wright-Fisher_a.png>]
+<Wright-Fisher_trend_a.png, id=104, 722.7pt x 433.62pt>
 File: Wright-Fisher_trend_a.png Graphic file (type png)
 <use Wright-Fisher_trend_a.png>
 Package pdftex.def Info: Wright-Fisher_trend_a.png  used on input line 568.
@@ -674,8 +676,8 @@ Overfull \hbox (16.3491pt too wide) in paragraph at lines 568--570
 [][]
  []
 
-[17 <./Wright-Fisher-70_a.png>]
-<Wright_Fisher_fixation_a.png, id=103, 722.7pt x 433.62pt>
+[19 <./Wright-Fisher-70_a.png>]
+<Wright_Fisher_fixation_a.png, id=110, 722.7pt x 433.62pt>
 File: Wright_Fisher_fixation_a.png Graphic file (type png)
 <use Wright_Fisher_fixation_a.png>
 Package pdftex.def Info: Wright_Fisher_fixation_a.png  used on input line 586.
@@ -685,11 +687,11 @@ Overfull \hbox (16.3491pt too wide) in paragraph at lines 586--588
 [][]
  []
 
-[18 <./Wright-Fisher_trend_a.png>] [19 <./Wright_Fisher_fixation_a.png>]
+[20 <./Wright-Fisher_trend_a.png>] [21 <./Wright_Fisher_fixation_a.png>]
 (./assignment_1_latex_answers.aux) ) 
 Here is how much of TeX's memory you used:
  2496 strings out of 494880
- 32813 string characters out of 6179600
+ 32823 string characters out of 6179600
  94125 words of memory out of 5000000
  5772 multiletter control sequences out of 15000+600000
  10160 words of font info for 37 fonts, out of 8000000 for 9000
@@ -713,10 +715,10 @@ amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on assignment_1_latex_answers.pdf (19 pages, 662566 bytes).
+Output written on assignment_1_latex_answers.pdf (21 pages, 659828 bytes).
 PDF statistics:
- 174 PDF objects out of 1000 (max. 8388607)
- 102 compressed objects within 2 object streams
+ 180 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
