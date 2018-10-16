@@ -77,13 +77,39 @@ The unique stationary distribution is
 $\pi_0 = [1,0,...,0]$
 
 
+\subsection{B - Mean Time to Asorption}
+
+Show it is equal to $E(T) = 2(1-\frac{1}{L})$
+
+Stefan said - sum expectation time across all steps( time to move to next state). Should be okay. 
+
+Waiting time for each state is 
+
+$\beta_n = \dfrac{1}{{n\choose 2}}$
+
+The waiting times of differnet states are independent, so the mean time to absoprtion is
+
+$E(T) = \sum_{i=1}^L \beta_i$
+
+$E(T) = \sum_{i=1}^L \dfrac{1}{{i\choose 2}}$
+
+$E(T) = \sum_{i=1}^L \dfrac{2}{i!}$
+
+$E(T) = \dfrac{2L}{\sum_{i=1}^Li!}$
+
+QUESTION - WTF? SUM OF FACTORIAL SEEMS WRONG
+
+
+\subsection{C - Rescaled process}
+
+Rescale the process to $N_t/L$
+
+$(\mathcal{L}^Lf)(n/L) = \frac{1}{L} {n\choose2} (f(\frac{n-1}{L}) - f(\frac{n}{L}))$
 
 
 
 
-\subsection{B}
 
-\subsection{C}
 
 \subsection{D}
 
