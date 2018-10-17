@@ -25,7 +25,7 @@ $N_t$ is the number of particles at time t with $N_0=L$. The process $(N_t : t \
 
 \subsubsection{Transition Rate of the process}
 
-$r(n,n-1) = {L\choose 2} \, , \, n \geq 2$ 
+$$r(n,n-1) = {L\choose 2} \, , \, n \geq 2$$
 
 QUESTION - WHAT ABOUT SAME STATE?
 $r(n,n) = $
@@ -37,23 +37,21 @@ $r(n, y) = \, , \, y \neq n,n-1$
 
 This is a jump process, so the generator is
 
-$(\mathcal{L}f)(x) = \int_{\Re} r(x,y)[f(y)-f(x)]dy$
-
-\bigskip
+$$(\mathcal{L}f)(x) = \int_{\Re} r(x,y)[f(y)-f(x)]dy$$
 
 For this process
 
-$(\mathcal{L}f)(n) = r(n,n-1)(f(n-1)-f(n))$
+$$(\mathcal{L}f)(n) = r(n,n-1)(f(n-1)-f(n))$$
 
-$(\mathcal{L}f)(n) = {n\choose 2} (f(n-1)-f(n))$
+$$(\mathcal{L}f)(n) = {n\choose 2} (f(n-1)-f(n))$$
 
 \subsubsection{Master Equation}
 
 The master equation is
 
-$\frac{d}{dt} \pi_t(n) = \pi_t(n+1)r(n+1,n) - \pi_t(n)r(n,n-1)$
+$$\frac{d}{dt} \pi_t(n) = \pi_t(n+1)r(n+1,n) - \pi_t(n)r(n,n-1)$$
 
-$\frac{d}{dt} \pi_t(n) = \pi_t(n+1){n+1\choose 2} - \pi_t(n) {n \choose 2}$
+$$\frac{d}{dt} \pi_t(n) = \pi_t(n+1){n+1\choose 2} - \pi_t(n) {n \choose 2}$$
 
 QUESTION - IS THIS RIGHT?
 QUESTION - IS THE NOTATION OKAY?
@@ -74,37 +72,54 @@ Let a distribution $\pi = [N=1, N=2,... ,N=L]$
 
 The unique stationary distribution is 
 
-$\pi_0 = [1,0,...,0]$
+$$\pi_0 = [1,0,...,0]$$
 
 
 \subsection{B - Mean Time to Asorption}
 
-Show it is equal to $E(T) = 2(1-\frac{1}{L})$
+The rate of coalescence, ie moving to the next state, for each state is
 
-Stefan said - sum expectation time across all steps( time to move to next state). Should be okay. 
+$$\lambda_n = r(n,n-1) = {n\choose 2} = \frac{n(n-1)}{2}$$
 
-Waiting time for each state is 
+The times in each state are expnentially dsitributed as
 
-$\beta_n = \dfrac{1}{{n\choose 2}}$
+$$f_t(n) = {n \choose 2} e^{-{n \choose 2}t}$$
 
-The waiting times of differnet states are independent, so the mean time to absoprtion is
+The expected time in each state, or the waiting time, is given by 
 
-$E(T) = \sum_{i=1}^L \beta_i$
+$$\beta_n = \dfrac{1}{\lambda_n} = \frac{2}{n(n-1)}$$
 
-$E(T) = \sum_{i=1}^L \dfrac{1}{{i\choose 2}}$
+The expected time to absorption is the sum of the expected waiting times in each of the states
 
-$E(T) = \sum_{i=1}^L \dfrac{2}{i!}$
+$$E(T) = \sum_{n=2}^L\frac{2}{n(n-1)}$$
 
-$E(T) = \dfrac{2L}{\sum_{i=1}^Li!}$
+Bringing the 2 outside of the summand and splitting up into partial fractions
 
-QUESTION - WTF? SUM OF FACTORIAL SEEMS WRONG
+$$E(T) = 2\sum_{n=2}^L\frac{1}{n-1} - \frac{1}{n}$$
+
+
+$$E(T) = 2(\frac{1}{1}-\frac{1}{2}+\frac{1}{2}-\frac{1}{3} + \frac{1}{3} + ... - \frac{1}{L-1} + \frac{1}{L+1} - \frac{1}{L})$$
+
+All but the first and last terms cancel giving
+
+$$E(T) = 2(1 - \frac{1}{L})$$
 
 
 \subsection{C - Rescaled process}
 
 Rescale the process to $N_t/L$
 
-$(\mathcal{L}^Lf)(n/L) = \frac{1}{L} {n\choose2} (f(\frac{n-1}{L}) - f(\frac{n}{L}))$
+$$(\mathcal{L}^Lf)(n/L) = \frac{1}{L} {n\choose2} (f(\frac{n-1}{L}) - f(\frac{n}{L}))$$
+
+Taylor expand and let $x=\frac{n}{L}$:
+
+$$(\mathcal{L}^Lf)(x) = \frac{1}{L}\frac{n(n-1)}{2} (f(x) - \frac{1}{L}f'(x) + \frac{1}{L^2}f''(x) + O(\frac{1}{L^3}) - f(x))$$
+
+Cancel terms, substitute $n=Lx$ and rearrange
+
+$$(\mathcal{L}^Lf)(x) = (\frac{x^2}{2} - \frac{x}{2L})(- f'(x) + \frac{1}{L}f''(x) + O(\frac{1}{L^2}))$$
+
+$$\lim_{L \to \infty} (\mathcal{L}^Lf)(x) = \frac{-x^2}{2}f'(x)$$
 
 
 
