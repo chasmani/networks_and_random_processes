@@ -82,5 +82,6 @@ def plot_kingsman_multiple():
 
 	plt.show()
 
-plot_kingsman_multiple_normalised()
 
+
+plot_kingsman_multiple_normalised()
