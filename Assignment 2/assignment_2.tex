@@ -231,7 +231,88 @@ Figure \ref{fig:ou_process} shows the Ornstein-Uhlenbeck process simulated. The 
 
 \subsection{A}
 
+\subsubsection{State space}
+
+Let the total possible L types be 
+
+$$T = \{1,2,...,L\}$$
+
+Each of the L individuals can have any of those types, so the state space is 
+
+$$S = \{1,2,3,...,L\}^L$$
+
+\subsubsection{Irreducibility}
+
+It is not irreducible because there are absorbing states. 
+
+\subsubsection{Stationary distributions}
+
+The absorbing states are where all individuals have the same type
+
+$$x_k = [k,k,...,k] \quad \forall k \in \{1,2,...,L\}  $$
+
+The stationary distributions are any linear combination of the absorbing states that sum to 1. 
+
+$$\pi(y) = \sum_{k=1}^L \alpha_k \pi_k(y)$$
+
+$$\sum_{k=1}^L \alpha_k = 1$$
+
+The coefficients, $\alpha_k$, are determined by the initial conditions and can be thought of as the probability of each type "winning" and taking over all individuals. 
+
 \subsection{B}
+
+\subsubsection{Markov process}
+
+$N_t : t \geq 0$ is a Markov process. It's future distribution is determined only by it's current state, not the specific history.
+
+\subsubsection{State space}
+
+Each type can have any integer between 0 and L types, and there are L types, so the state space is 
+
+$$S = \{0,1,2,...,L\}^L$$
+
+\subsubsection{Generator}
+
+For each type, we assume that the number of individuals of that type, $n$, can only increase and decrease by 1 at one moment in time, i.e only one event happens at a time. The rates of gain and loss can be described as:
+
+$$r(n,n+1) = \frac{n(L-n)}{L-1}$$
+
+$$r(n,n-1) = \frac{n(L-n)}{L-1}$$
+
+These are symmetrical. 
+
+??? WHERE TO GO FROM HERE???
+
+
+\subsubsection{Irreducibility}
+
+The process is not irreducible because there are absorbing states. 
+
+\subsubsection{Stationary dsitributions}
+
+The absorbing states are where one type has $N_k = L$ and the rest $N_k=0$. i.e
+
+$$ \pi_k(y) = \delta_{y,k} = \begin{cases}
+L \quad , \quad y=k\\
+0 \quad , \quad \text{otherwise}\\
+\end{cases}$$
+
+?? IS THAT RIGHT? 
+ 
+\subsubsection{Limiting distribution}
+
+As $t \to \infty$ with initial condition $N_0 = 1$, the limiting distribution is
+
+$$ [\frac{L-1}{L},0,0,...,0,\frac{1}{L}]$$
+
+
+
+
+
+
+
+
+
 
 \subsection{C}
 
