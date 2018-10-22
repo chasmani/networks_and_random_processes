@@ -199,7 +199,9 @@ $$ v(t) = \frac{\sigma^2}{2 \alpha}(1-e^{-2 \alpha t})$$
 
 As a Gaussian process, the distribution is fully described by the mean and variance.
 
-INSERT DISTIRBUTION FUNCTION HERE
+$$f(X_t) = \dfrac{1}{\sqrt{\frac{2 \pi \sigma^2 (1-e^{-2 \alpha t})}{2 \alpha}}}exp(\frac{- \alpha (x - x_0 e^{- \alpha t})^2}{\sigma^2 (1-e^{-2 \alpha t})}$$
+
+IS THAT RIGHT?
 
 \subsubsection{Stationary Distribution}
 
@@ -211,9 +213,19 @@ $$\lim_{t \to \infty} v(t) = \frac{\sigma^2}{2 \alpha}$$
 
 The stationary distribution is $\sim N(0,\frac{\sigma^2}{2 \alpha})$ 
 
+$$f_0(X_t) = \dfrac{1}{\sqrt{\frac{\pi \sigma^2}{\alpha}}}exp(\frac{- \alpha x^2}{\sigma^2})$$
 
+CHECK IF THAT IS RIGHT
 
-\subsection{C}
+\subsection{Simulation}
+
+\begin{figure}[H]
+\includegraphics[scale=0.25]{ou_process_a.png} 
+\caption{The Ornstein-Uhlenbeck process with $\alpha=1$, $\sigma^2=1$ and $X_0 = 5$. Simulated for 10 seconds with timsteps $\Delta t =0.1$ and $0.01$}
+\label{fig:ou_process}
+\end{figure}
+
+Figure \ref{fig:ou_process} shows the Ornstein-Uhlenbeck process simulated. The process begins at $X_0=5$, and expereinces a "force" pulling it towards zero. As time progresses, the process moves towards $X_t=0$ and the noise term begins to dominate the behaviour. Both choices of timestep give a similar result.
 
 \section{Moran Model and Wright-Fisher diffusion}
 
