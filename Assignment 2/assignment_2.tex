@@ -129,14 +129,9 @@ QUESTION - INITIAL CONDITION?
 
 \subsubsection{Deterministic}
 
-We have
+The generator has no diffusion term, only drift. So there is no variance in the process and it must be entireley deterministic. 
 
-$$\frac{d}{dt}E(f(x)) = E((\mathcal{L^L}f)(x))$$
-
-$$\frac{d}{dt}E(f(x)) = E(\frac{-x^2}{2}\frac{dx}{dt}))$$
-
-??? IS THAT RIGHT AT ALL?
-
+WHAT IS THE CALCAULTION FOR $X_T$?
 
 
 
@@ -148,21 +143,73 @@ QUESTION - WHAT IS THE ADD THIS LINE BIT OF CODE IN EMMA'S WORKBOOK
 
 \subsection{A}
 
-$$dm = dE(X_t) = -\alpha x dt$$
+The mean:
 
-$$dE(X_t^2) = (-\alpha 2 x^2 + \sigma^2) dt$$
+$$\frac{dm}{dt} = \frac{d}{dt}E(X_t) = E(-\alpha X_t) = -\alpha E(X_t)$$
 
-$$dv(t) = dE(X_t^2) - dm(t)^2$$
+$$\frac{dm}{dt} = -\alpha m(t)$$
 
-$$dv(t) = (-\alpha 2 x^2 + \sigma^2  + 2 m(t)\alpha x) dt $$
+$X_t^2$:
 
+$$\frac{d}{dt}E(X_t^2) = E(- \alpha 2X_t^2 + \sigma^2)$$
 
+$$\frac{d}{dt}E(X_t^2) = -2 \alpha E(X_t^2) + \sigma^2$$
 
-???
+The variance:
+
+$$v(t) = E(X_t^2) -m(t)^2$$
+
+$$\frac{dv}{dt} = \frac{d}{dt}E(X_t^2) - 2m\frac{dm}{dt}$$
+
+$$\frac{dv}{dt} = -2 \alpha E(X_t^2) + \sigma^2 + 2m^2$$
 
 \subsection{B}
 
-Gaussian process - so fully characterised by mean and variance. 
+\subsubsection{Solution of $m(t)$}
+
+Solving for m(t), and considering the initial conditions, $c=x_0$
+
+$$m(t) = x_0 e^{-\alpha t}$$
+
+\subsubsection{Solution of $v(t)$}
+
+Solving for v(t)
+
+$$\frac{dv}{dt} = -2 \alpha (v + m^2) + \sigma^2 + 2 \alpha m^2$$
+
+$$\frac{dv}{dt} +  2 \alpha v = \sigma^2$$
+
+Homogenous solution:
+
+$$v_hom = c_2 e^{-2 \alpha t}$$
+
+Particular solution:
+
+$$v_part = \frac{\sigma^2}{2 \alpha}$$
+
+Full solution:
+
+$$ v(t) = c_2 e^{-2 \alpha t} + \frac{\sigma^2}{2 \alpha}$$
+
+From initial conditions, $v(0) = 0$:
+
+$$ v(t) = \frac{\sigma^2}{2 \alpha}(1-e^{-2 \alpha t})$$
+
+\subsubsection{Distribution}
+
+As a Gaussian process, the distribution is fully described by the mean and variance.
+
+INSERT DISTIRBUTION FUNCTION HERE
+
+\subsubsection{Stationary Distribution}
+
+Given enough time, the process will converge to a Gaussian stationary distribution.  
+
+$$\lim_{t \to \infty} m(t) = 0$$
+
+$$\lim_{t \to \infty} v(t) = \frac{\sigma^2}{2 \alpha}$$
+
+The stationary distribution is $\sim N(0,\frac{\sigma^2}{2 \alpha})$ 
 
 
 
