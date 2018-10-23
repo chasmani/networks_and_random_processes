@@ -131,8 +131,16 @@ QUESTION - INITIAL CONDITION?
 
 The generator has no diffusion term, only drift. So there is no variance in the process and it must be entireley deterministic. 
 
-WHAT IS THE CALCAULTION FOR $X_T$?
+$$\frac{d}{dt}E(X_t) = E(-\frac{X_t^2}{2})$$
 
+$X_t$ is deterministic, so
+
+$$\frac{d}{dt}X_t = -\frac{X_t^2}{2}$$
+
+$$X(t) = -\frac{X^2}{2}t$$
+
+
+NOTATION OKAY?
 
 
 \subsection{D - Simulations}
@@ -215,8 +223,6 @@ The stationary distribution is $\sim N(0,\frac{\sigma^2}{2 \alpha})$
 
 $$f_0(X_t) = \dfrac{1}{\sqrt{\frac{\pi \sigma^2}{\alpha}}}exp(\frac{- \alpha x^2}{\sigma^2})$$
 
-CHECK IF THAT IS RIGHT
-
 \subsection{Simulation}
 
 \begin{figure}[H]
@@ -281,7 +287,18 @@ $$r(n,n-1) = \frac{n(L-n)}{L-1}$$
 
 These are symmetrical. 
 
-??? WHERE TO GO FROM HERE???
+
+This is a jump process, so the generator is
+
+$$(\mathcal{L}f)(x) = \int_{\Re} r(x,y)[f(y)-f(x)]dy$$
+
+For this process
+
+$$(\mathcal{L}f)(n) = r(n,n-1)(f(n-1)-f(n)) + r(n,n+1)(f(n+1)-f(n))$$
+
+$$(\mathcal{L}f)(n) = \frac{(L-n)n}{L-1}(f(n-1) + f(n+1) - 2f(n))$$
+
+
 
 
 \subsubsection{Irreducibility}
@@ -301,9 +318,102 @@ L \quad , \quad y=k\\
  
 \subsubsection{Limiting distribution}
 
-As $t \to \infty$ with initial condition $N_0 = 1$, the limiting distribution is
+As $t \to \infty$ with initial condition $N_0 = 1$. By symmetry each type has the same chance of "winning", therefore the limiting distribution is
 
-$$ [\frac{L-1}{L},0,0,...,0,\frac{1}{L}]$$
+$$ \pi_{\infty} = [\frac{L-1}{L},0,0,...,0,\frac{1}{L}]$$
+
+\subsection{C}
+
+\subsubsection{$m_1(t)$}
+
+$$\frac{d}{dt}(E(N_t)) = E(\frac{n(L+n)}{L-1}(n + 1 + n - 1 -2n)$$
+
+$$\frac{d}{dt}(E(N_t)) = 0$$
+
+$N_0 = n$, therefore $E(N_t)=n$.
+
+\subsubsection{$m_2(t)$}
+
+$$\frac{d}{dt}(E(N^2)) = E(\frac{n(L+n)}{L-1}((n + 1)^2 + (n - 1)^2 -2n^2)$$
+
+$$\frac{d}{dt}(E(N^2)) = E(\frac{n(L+n)}{L-1}(n^2 + 2n + 1 + n^2 - 2n + 1 -2n^2)$$
+
+$$\frac{d}{dt}(E(N^2)) = E(\frac{2n(L+n)}{L-1})$$
+
+$$\frac{d}{dt}(E(N^2)) = \frac{2L}{L-1}n + \frac{2}{L-1}E(N^2)$$
+
+Solution in the form:
+
+$$E(N^2) = Ae^{\frac{-2t}{L-1}} + B$$
+
+From initial condition, $A=N_0^2$
+
+Substitute everything into the original differential equation:
+
+$$\frac{-2n}{L-1}e^{\frac{-2t}{L-1}} = \frac{2Ln}{L-1} + \frac{2n}{L-1}e^{\frac{-2t}{L-1}} + \frac{2B}{L-1}$$
+
+$$B = Ln(1-ne^{\frac{-2t}{L-1}})$$
+
+$$E(N^2) = n^2e^{\frac{-2t}{L-1}} + Ln(1-e^{\frac{-2t}{L-1}})$$
+
+QUESTION - I HAVE A FACTOR OF n in front of exponential in the bracket for B - I don't think that I should have
+
+\subsubsection{Absorption probabilities}
+
+By symmetry, each individual has an equal chance of winning?? NOT SURE ABOUT THIS
+
+\subsubsection{Absorption time scales with system size L}
+
+The expected value of $E(N_t)=n$.
+
+The variance is given by 
+
+$$Var(N_t) = n^2e^{\frac{-2t}{L-1}} + Ln(1-ne^{\frac{-2t}{L-1}}) - n^2$$
+
+$$Var(N_t) = (Ln - n^2)(1- e^{\frac{-2t}{L-1}})$$
+
+If we assume that we start in the middle, so $n=\frac{L}{2}$
+
+$$Var(N_t) = \frac{L^2}{4}(1- e^{\frac{-2t}{L-1}})$$
+
+As the standard deviation grows, the probability of being absorbed at either $N=0$ or $N=L$ also grows. The rate at which the standard deviation grows with time scales approximately with the length of the state space. 
+
+
+
+
+
+
+
+
+
+\subsection{D}
+
+\subsubsection{Rescaling limit}
+
+$$(\mathcal{L}f)(n) = \frac{(L-n)n}{L-1}(f(n+1) + f(n-1) - 2f(n))$$
+
+Rescale by dividing state space by L, multiplying time by $L^\alpha$ and changing the variable to $x=\frac{n}{L}$:
+
+$$(\mathcal{L}f)(x) = \frac{(L-xL)xL}{L-1}L^\alpha(f(x+\frac{1}{L}) + f(x+\frac{1}{L}) - 2f(x))$$
+
+Taylor expand and simplify:
+
+$$(\mathcal{L}f)(x) = \frac{(L-xL)xL}{L-1}L^\alpha(\frac{1}{L^2}f''(x) - O(\frac{1}{L^3})$$
+
+$$(\mathcal{L}f)(x) = \frac{L^\alpha}{L} \frac{xL^2 - x^2L^2}{1-\frac{1}{L}}(\frac{1}{L^2}f''(x) - O(\frac{1}{L^3})$$
+
+Set $\alpha=1$ to get a non-trivial scaliming limit:
+
+$$(\mathcal{L}f)(x) = (\frac{x - x^2}{1-\frac{1}{L}})f''(x) - O(\frac{1}{L})$$
+
+Take limit $L \to \infty$:
+
+$$(\mathcal{L}^Lf)(x) = (\lim_{L \to \infty} \mathcal{L}f)(x) = (x - x^2)f''(x)$$
+
+$$(\mathcal{L}^Lf)(x) = x(1 - x)f''(x)$$
+
+\subsubsection{Fokker-Planck Equation}
+
 
 
 

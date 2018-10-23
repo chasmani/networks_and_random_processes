@@ -27,7 +27,7 @@ def plot_kingsman(L, normalised=False):
 		beta=1.0/rate # beta. Average waiting time in a state
 		
 		# Beta is the scale function in the exponential distribution
-		waitTime=np.random.exponential(scale=beta) # get a waiting time from exponential dist
+		waitTime=np.random.exponential(scale=beta)*L # get a waiting time from exponential dist
 
 		# Want this to be a strainght line, so plot a bit at a time
 		# Each loop plots the next part of the time
