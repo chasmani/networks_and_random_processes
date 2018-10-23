@@ -408,30 +408,45 @@ $$(\mathcal{L}f)(x) = (\frac{x - x^2}{1-\frac{1}{L}})f''(x) - O(\frac{1}{L})$$
 
 Take limit $L \to \infty$:
 
-$$(\mathcal{L}^Lf)(x) = (\lim_{L \to \infty} \mathcal{L}f)(x) = (x - x^2)f''(x)$$
+$$(\mathcal{L}^Lf)(x) = \lim_{L \to \infty} (\mathcal{L}f)(x) = (x - x^2)f''(x)$$
 
 $$(\mathcal{L}^Lf)(x) = x(1 - x)f''(x)$$
 
 \subsubsection{Fokker-Planck Equation}
 
+$$\frac{\partial}{\partial t}p_t(x,y) = \frac{1}{2} \frac{\partial^2}{\partial y^2} (y(1-y) p_t(x,y)$$
 
-
-
-
-
-
-
-
-
-
-\subsection{C}
-
-\subsection{D}
+WHAT DOES THIS MEAN?
 
 \subsection{E}
 
-\subsection{F}
+\subsubsection{$m(t)$}
 
+$$\frac{d}{dt}E(M) = 0$$
+
+No change in $E(M_t)$ with time. It's a diffusion process with no fridt, so $E(M_t) = 0$
+
+\subsubsection{$v(t)$}
+
+$$v(t) = E(M_t^2)$$
+
+Let $f(m) = m^2$:
+
+$$\frac{d}{dt}E(M^2) = E(2M-2M^2) = -2E(M^2)$$
+
+$$v(t) = E(M^2) = c_1 e^{-2t}$$
+
+Set $v(0) = v_0$
+
+$$v(t) = E(M^2) = v_0 e^{-2t}$$
+
+$v(t) \to 0$ as $t \to \infty$. Process is absorbed on the edges, so variance drops to zero
+
+QUESTION - IS THIS RIGHT?? 
+
+It is not Gaussian because it has a limited state space, Gaussians go to infinity.
+
+\subsection{F}
 
 
 \end{document}
