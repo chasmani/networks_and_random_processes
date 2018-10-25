@@ -45,40 +45,37 @@ def plot_kingsman(L, normalised=False):
 		
 
 	plt.plot([time,time],[y,y],COLORS[L],lw=2, label="L={}".format(L)) # Just add the legend labels
-		
+
+
+def plot_theoretical():
+
+	powers = np.linspace(-10, 10)
+
+	ts = [2**power for power in powers]
+
+	xs = [1/(0.5*t + 1) for t in ts]
+
+	plt.plot(ts,xs, label="Theoretical Prediction", color="yellow")		
+
 
 def plot_kingsman_multiple_normalised():
 
 	plot_kingsman(10, normalised=True)
 	plot_kingsman(100, normalised=True)
 	plot_kingsman(1000, normalised=True)
+	plot_theoretical()
 		
 	plt.title(r'Kingmans Coalesent for $L=10,100,1000$')
 	plt.xlabel('$t$')
-	plt.ylabel('$N_t$')
+	plt.ylabel('$X_t$')
 
 	plt.yscale('linear') # linear y scale
 	plt.xscale('log') # change to log x scale]
 
 	plt.legend()
 
-	plt.show()
+	plt.savefig('kingsman.png')
 
-
-def plot_kingsman_multiple():
-
-	plot_kingsman(10)
-	plot_kingsman(100)
-	plot_kingsman(1000)
-		
-	plt.title(r'Kingmans Coalesent for $L=10,100,1000$')
-	plt.xlabel('$t$')
-	plt.ylabel('$N_t$')
-
-	plt.yscale('linear') # linear y scale
-	plt.xscale('log') # change to log x scale]
-
-	plt.legend()
 
 	plt.show()
 

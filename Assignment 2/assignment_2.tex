@@ -121,15 +121,16 @@ $$(\mathcal{L}^Lf)(x) = (\frac{x^2}{2} - \frac{x}{2L})(- f'(x) + \frac{1}{L}f''(
 
 $$\lim_{L \to \infty} (\mathcal{L}^Lf)(x) = \frac{-x^2}{2}f'(x)$$
 
+The state space goes from $\frac{1}{L}$ to $\frac{L}{L}$. As $L \to \infty$, this is $(0,1]$. 
 
-
-QUESTION - STATE SPACE?
-QUESTION - INITIAL CONDITION?
+The initial condition is $X_0 = \frac{L}{L} = 1$, 
 
 
 \subsubsection{Deterministic}
 
 The generator has no diffusion term, only drift. So there is no variance in the process and it must be entireley deterministic. 
+
+\subsubsection{Computing $X_t$}
 
 $$\frac{d}{dt}E(X_t) = E(-\frac{X_t^2}{2})$$
 
@@ -137,15 +138,51 @@ $X_t$ is deterministic, so
 
 $$\frac{d}{dt}X_t = -\frac{X_t^2}{2}$$
 
-$$X(t) = -\frac{X^2}{2}t$$
+$$\frac{dX_t}{X_t^2} = -\frac{1}{2}dt$$
 
 
-NOTATION OKAY?
+$$\frac{1}{X_t} = \frac{1}{2}t + c$$
 
 
-\subsection{D - Simulations}
+$$X_t = \frac{1}{\frac{t}{2}+c}$$
 
-QUESTION - WHAT IS THE ADD THIS LINE BIT OF CODE IN EMMA'S WORKBOOK
+From the initial conditions, $X_0=1$, $c=1$.
+
+$$X_t = \frac{1}{\frac{t}{2}+1}$$
+
+\subsubsection{Comparing to result from b}
+
+The result from part b was
+
+$$E(T) = 2(1 - {1}{T})$$
+
+For the rescaled process:
+
+$$X_t = \frac{1}{\frac{t}{2}+1}$$
+
+Consider when it reaches the absorbing state, i.e. $X_t = \frac{1}{L}$:
+
+$$\frac{1}{L} = \frac{1}{\frac{t}{2}+1}$$
+
+$$ L = \frac{t}{2}+1$$
+
+$$ t = 2L(1-\frac{1}{L})$$
+
+
+This is the same as the result from part b with a factor of L. This arises because we slowed down time by a factor of L during the rescaling process. 
+
+
+
+\subsection{D - Simulation}
+
+\begin{figure}[H]
+\includegraphics[scale=0.8]{kingsman_a.png} 
+\caption{The Kingsman's coalescent rescaled process simulated for L=10, L=100, L=1000. The theoretical prediction of $X_t = \frac{1}{\frac{t}{2} + 1}$ is also shown.}
+\label{fig:kingsman}
+\end{figure}
+
+Figure \ref{fig:kingsman} shows sample paths of the rescaled Kingsman's coalescent process for L=10,100 and 1000. The theoretical prediction for $L \to \infty$ is also shown. The simulations line up very well with the theoretical prediction.
+
 
 \section{Ornstein-Uhlenbeck process}
 
@@ -169,7 +206,7 @@ $$v(t) = E(X_t^2) -m(t)^2$$
 
 $$\frac{dv}{dt} = \frac{d}{dt}E(X_t^2) - 2m\frac{dm}{dt}$$
 
-$$\frac{dv}{dt} = -2 \alpha E(X_t^2) + \sigma^2 + 2m^2$$
+$$\frac{dv}{dt} = -2 \alpha E(X_t^2) + \sigma^2 + 2 \alpha m^2$$
 
 \subsection{B}
 
@@ -414,7 +451,7 @@ $$(\mathcal{L}^Lf)(x) = x(1 - x)f''(x)$$
 
 \subsubsection{Fokker-Planck Equation}
 
-$$\frac{\partial}{\partial t}p_t(x,y) = \frac{1}{2} \frac{\partial^2}{\partial y^2} (y(1-y) p_t(x,y)$$
+$$\frac{\partial}{\partial t}p_t(x,y) = \frac{\partial^2}{\partial y^2} (y(1-y) p_t(x,y)$$
 
 WHAT DOES THIS MEAN?
 
@@ -446,7 +483,16 @@ QUESTION - IS THIS RIGHT??
 
 It is not Gaussian because it has a limited state space, Gaussians go to infinity.
 
-\subsection{F}
+\subsection{F - Simulation}
+
+\begin{figure}[H]
+\includegraphics[scale=0.8]{moran_a.png} 
+\caption{The Moran model process simulated for a population of L=40. $N_t$ is the number of individuals of each type, plotted against continuous time.} 
+\label{fig:moran}
+\end{figure}
+
+Figure \ref{fig:moran} shows a simulation of the Moran model process. The number of each individuals of each type is shown a a function of continuous time. Gains in one type must conincide with losses of another type, as they must always sum to 40. This can be seen in the symmetry in the patterns between the two surviving types after around $t=18$.
+
 
 
 \end{document}
