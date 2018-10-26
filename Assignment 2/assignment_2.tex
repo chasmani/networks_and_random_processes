@@ -74,7 +74,6 @@ The unique stationary distribution is
 
 $$\pi_0 = [1,0,...,0]$$
 
-
 \subsection{B - Mean Time to Asorption}
 
 The rate of coalescence, ie moving to the next state, for each state is
@@ -387,17 +386,22 @@ From initial condition, $A=N_0^2$
 
 Substitute everything into the original differential equation:
 
-$$\frac{-2n}{L-1}e^{\frac{-2t}{L-1}} = \frac{2Ln}{L-1} + \frac{2n}{L-1}e^{\frac{-2t}{L-1}} + \frac{2B}{L-1}$$
+$$\frac{-2n}{L-1}e^{\frac{-2t}{L-1}} = \frac{2Ln}{L-1} + \frac{2}{L-1}e^{\frac{-2t}{L-1}} + \frac{2B}{L-1}$$
 
-$$B = Ln(1-ne^{\frac{-2t}{L-1}})$$
+$$B = Ln(1-e^{\frac{-2t}{L-1}})$$
 
 $$E(N^2) = n^2e^{\frac{-2t}{L-1}} + Ln(1-e^{\frac{-2t}{L-1}})$$
 
-QUESTION - I HAVE A FACTOR OF n in front of exponential in the bracket for B - I don't think that I should have
 
 \subsubsection{Absorption probabilities}
 
-By symmetry, each individual has an equal chance of winning?? NOT SURE ABOUT THIS
+By symmetry, each individual has an equal chance of winning. So the absorption probabilities are
+
+$$p(L) = \frac{n}{L}$$
+
+$$p(0) = 1 - \frac{n}{L}$$
+
+
 
 \subsubsection{Absorption time scales with system size L}
 
@@ -409,18 +413,19 @@ $$Var(N_t) = n^2e^{\frac{-2t}{L-1}} + Ln(1-ne^{\frac{-2t}{L-1}}) - n^2$$
 
 $$Var(N_t) = (Ln - n^2)(1- e^{\frac{-2t}{L-1}})$$
 
-If we assume that we start in the middle, so $n=\frac{L}{2}$
+The standard deviation grows with time. As the standard deviation grows, it becomes more and more likely that the process will be absorbed. 
 
-$$Var(N_t) = \frac{L^2}{4}(1- e^{\frac{-2t}{L-1}})$$
+Let $x = \frac{n}{L}$
 
-As the standard deviation grows, the probability of being absorbed at either $N=0$ or $N=L$ also grows. The rate at which the standard deviation grows with time scales approximately with the length of the state space. 
+$$Var(N_t) = L^2 (x -x^2)(1- e^{\frac{-2t}{L-1}})$$
 
+$$\sigma(N_t) = L (x -x^2)^{\frac{1}{2}}(1- e^{\frac{-2t}{L-1}})^{\frac{1}{2}}$$
 
+$$\frac{\sigma(N_t)}{L} = (x -x^2)^{\frac{1}{2}}(1- e^{\frac{-2t}{L-1}})^{\frac{1}{2}}$$
 
+The ratio $\frac{\sigma}{L}$ can be thought of as a proxy for the absorption probability. For different L, equal values of $\frac{\sigma}{L}$ will have very similar absorption probability distributions in x. 
 
-
-
-
+If we were to increase L while fixing $\frac{\sigma}{L}$, i.e. fixing the absoprtion probability, then the time would scale linearly with L. From this argument, we can see that absorption time will scale linearly with L.  
 
 
 \subsection{D}
@@ -461,25 +466,37 @@ WHAT DOES THIS MEAN?
 
 $$\frac{d}{dt}E(M) = 0$$
 
-No change in $E(M_t)$ with time. It's a diffusion process with no fridt, so $E(M_t) = 0$
+No change in $E(M_t)$ with time. Let $E(M_t) = M_0$
 
 \subsubsection{$v(t)$}
 
-$$v(t) = E(M_t^2)$$
+$$\frac{d}{dt}E(M^2) = E(2M - 2M^2)$$
 
-Let $f(m) = m^2$:
+$$\frac{d}{dt}E(M^2) = 2M_0 - 2E(M^2)$$
 
-$$\frac{d}{dt}E(M^2) = E(2M-2M^2) = -2E(M^2)$$
+This is a differential equations. Homogenous solution:
 
-$$v(t) = E(M^2) = c_1 e^{-2t}$$
+$$E(M^2)_{hom} = c e^{-2t}$$
 
-Set $v(0) = v_0$
+$$E(M^2)_{part} = M_0$$
 
-$$v(t) = E(M^2) = v_0 e^{-2t}$$
+Full solution:
 
-$v(t) \to 0$ as $t \to \infty$. Process is absorbed on the edges, so variance drops to zero
+$$E(M^2) = c e^{-2t} + M_0$$
 
-QUESTION - IS THIS RIGHT?? 
+The initial conditions are $M(0)^2 = M_0^2$ 
+
+$$E(M^2) = (M_0^2 -M_0)e^{-2t} + M_0$$
+
+The variance:
+
+$$v(t) = E(M^2) - E(M)^2$$
+
+$$v(t) = (M_0^2 -M_0)e^{-2t} + M_0 - M_0^2$$
+
+Factorises to:
+
+$$v(t) = M_0(1-M_0)(1-e^{-2t})$$
 
 It is not Gaussian because it has a limited state space, Gaussians go to infinity.
 
