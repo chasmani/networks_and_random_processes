@@ -137,7 +137,6 @@ def get_deg_dist_times(n):
 	full_data = collections.Counter()
 	for count in range(n):
 		full_data += get_deg_dist_once_counter()
-	print(full_data)
 	return full_data
 
 def plot_20_degree_distributions():
@@ -149,7 +148,7 @@ def plot_20_degree_distributions():
 	# 1	
 	degree_counter = get_deg_dist_once_counter()
 	degree, count = zip(*degree_counter.items())
-	plt.scatter(degree, np.array(count)/sum(count), color="green")
+	plt.scatter(degree, np.array(count)/sum(count), color="green", label="1 realisation")
 
 	# 20
 	degree_counter_20 = get_deg_dist_times(20)
@@ -158,24 +157,110 @@ def plot_20_degree_distributions():
 	
 	degree_20 = np.array(deg_data_20)
 	count_20 = np.array(count_data_20)
-	plt.scatter(degree_20, count_20/sum(count_20), color="yellow")
+	plt.scatter(degree_20, count_20/sum(count_20), color="yellow", label="20 realisations")
 
 	# Theoretical
-	theoretical = [d**-2 for d in deg_data_20]
-	plt.plot(degree_20, theoretical, color="red")
+	theoretical = np.array([d**-3 for d in deg_data_20])
+	plt.plot(degree_20, theoretical/sum(theoretical), color="red", label=r"Power law $\alpha=-3$")
+
+
+	#Do the cumulative tail - it is easier to work with. 
+
+	# -3 is 
 
 
 	plt.yscale('log') # linear y scale
 	plt.xscale('log')
 
-	plt.xlabel('Degree')
+	plt.xlabel('Degree, k')
 	plt.ylabel('Frequency')
 
+	plt.title(r"Barabási–Albert Degree Distribution. $m=5$")
 
+	plt.legend()
 
 	plt.show()
 
-plot_20_degree_distributions()
+
+
+def toy_graph():
+
+	G=nx.Graph()
+	G.add_node(1)
+	G.add_node(2)
+	G.add_node(3)
+	G.add_node(4)
+
+	G.add_edges_from([(1,2),(1,3),(2,3),(3,4)])
+
+	return G
+
+# Could be bullshit
+def k_nn():
+
+	G = barabasi_albert_graph_complete_start(1000,5)
+	# Go through all nodes
+
+	# Get the degree sequence
+	degree_sequence = sorted([d for n, d in G.degree()])  # degree sequence
+	degreeCount = collections.Counter(degree_sequence)
+	
+	# I think k_nn(k) should be a distribution?
+	degree_distribution = {}
+
+	# Iterate through each degree that exists in the degree distribution
+	for degree_count in degreeCount.items():
+
+		# Get the degree for this loop
+		degree = degree_count[0]
+		
+		# Total nodes with this degree - denominator summation
+		total_count = degree_count[1]
+
+		# Top summation 
+		top_summation = 0
+
+		for node in G.nodes():
+			# Add to the sum only if the node has the degree we are interested in this loop
+			if G.degree(node) == degree:
+				top_summation += k_nn_i(node, G)
+
+		degree_distribution[degree] = (top_summation/total_count)
+
+	print(degree_distribution)
+
+
+def get_node_degree(node, G):
+
+	pass
+
+def build_degree_dict():
+
+	pass
+
+
+
+
+
+def k_nn_i(node, G):
+	# The sum of your neigjbors degree, divided by your own degree
+	# If the graph was assortative, this would be near 1
+	# If it was diassortative, it would be ??
+
+	# Degree of this node
+	k_i = G.degree(node)
+
+	# If no neighbours, set to zero
+	if k_i == 0:
+		return 0
+	
+	# Get sum of neighbours degree
+	neighbour_degree_sum = 0
+	for neighbour in G.neighbors(node):
+		neighbour_degree_sum += G.degree(neighbour)
+
+	return neighbour_degree_sum/k_i
+
 
 
 

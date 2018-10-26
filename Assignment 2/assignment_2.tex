@@ -493,7 +493,70 @@ It is not Gaussian because it has a limited state space, Gaussians go to infinit
 
 Figure \ref{fig:moran} shows a simulation of the Moran model process. The number of each individuals of each type is shown a a function of continuous time. Gains in one type must conincide with losses of another type, as they must always sum to 40. This can be seen in the symmetry in the patterns between the two surviving types after around $t=18$.
 
+\section{Barabasi-Albert}
 
+\subsection{Tail of degree distribution}
+
+\begin{figure}[H]
+\includegraphics[scale=0.8]{barabasi_a.png} 
+\caption{The Barabasi-Albert preferential attachment model simulated starting with 5 nodes and each new node attaching to 5 existing nodes. N = 1000 nodes. 1 - Probability Density Function is shown, estimated empircally for 1 realisation and 20 realisations. The tail fits closely to a power law with $\alpha=-2$.} 
+\label{fig:barabasi}
+\end{figure}
+
+Figure \ref{fig:barabasi} shows a simulation of the Barabasi-Albert model. The emprical tail fits closely to a power law with $\alpha = -2$.
+
+\subsection{Distribution of degree of nearest neighbour}
+
+\begin{figure}[H]
+\includegraphics[scale=0.8]{degree_neighbour_a.png} 
+\caption{The degree distribution of nearest neighbours for Barabasi-Albert model averaged over 100 realisations with $m=5$, $N = 1000$.} 
+\label{fig:neighbour}
+\end{figure}
+
+Figure \ref{fig:neighbour} shows the expected degree of the nearest neightbour for the Barabasi-Albert simluation with 100 realisations. There is not a strong correlation between a node's degree and the expected degree of their nearest neighbour. The graphs typically appear to be uncorrelated.
+
+
+\section{Erdos-Enyi Random Graph}
+
+\subsection{Component sizes}
+
+\begin{figure}[H]
+\includegraphics[scale=0.8]{erdos_a.png} 
+\caption{First and sexond largest component sizes for Erdos-Renyi random graphs as a function of z, the average degree of each node. $N=100$} 
+\label{fig:erdos_100}
+\end{figure}
+
+
+\begin{figure}[H]
+\includegraphics[scale=0.8]{erdos_1000_a.png} 
+\caption{First and sexond largest component sizes for Erdos-Renyi random graphs as a function of z, the average degree of each node. $N=1000$} 
+\label{fig:erdos_1000}
+\end{figure}
+
+Figures \ref{fig:erdos_100} and \ref{fig:erdos_1000} show the 2 largest component sizes for Erdos-Renyi random graphs as a function of z, for 20 realisations. At $z=1$, the system undergoes a phase transition, which can be seen more clearly in \ref{fig:erdos_1000}. 
+
+Below $z=1$ there are many small components, and the sizes of the largest ones grow as $~O(logN)$. Above $z=1$ the largest components grow as $~O(N)$. At the boundary the size of the components are distributed by a scale free power law distribution.
+
+\subsection{Clustering Coefficient}
+
+\begin{figure}[H]
+\includegraphics[scale=0.8]{clustering_a.png} 
+\caption{Erdod-Renyi random graphs clustering coefficeint as a function of z for 10 realisations and total nodes N=1000.} 
+\label{fig:clustering}
+\end{figure}
+
+Figures \ref{fig:clustering} shows the emprical clustering coefficients of Erdos-Renyi random graphs at a range of z values. There is a linear relationship between z and the expected clustering coefficient. Even at relatively high z, the clustering coefficient is low. 
+
+\subsection{Degree Distribution}
+
+
+\begin{figure}[H]
+\includegraphics[scale=0.8]{poisson_a.png} 
+\caption{Erdod-Renyi random graphs degree distribution, averaged over 20 realisations. And a Poisson distribution with $z=1.5$ as a shape parameter.} 
+\label{fig:poisson}
+\end{figure}
+
+Figure \ref{fig:clustering} shows the average degree distibution for 20 realisations of Erdos-Renyi random graphs of size $N=1000$. The discrepancy between the empirical data and the Poisson distribution will reduce as N increases. In the limit as $N \to \infty$ the degree distribution should fit a Poisson distribution. 
 
 \end{document}
 
