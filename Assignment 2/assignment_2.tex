@@ -393,6 +393,7 @@ $$B = Ln(1-e^{\frac{-2t}{L-1}})$$
 $$E(N^2) = n^2e^{\frac{-2t}{L-1}} + Ln(1-e^{\frac{-2t}{L-1}})$$
 
 
+
 \subsubsection{Absorption probabilities}
 
 By symmetry, each individual has an equal chance of winning. So the absorption probabilities are
@@ -425,7 +426,15 @@ $$\frac{\sigma(N_t)}{L} = (x -x^2)^{\frac{1}{2}}(1- e^{\frac{-2t}{L-1}})^{\frac{
 
 The ratio $\frac{\sigma}{L}$ can be thought of as a proxy for the absorption probability. For different L, equal values of $\frac{\sigma}{L}$ will have very similar absorption probability distributions in x. 
 
-If we were to increase L while fixing $\frac{\sigma}{L}$, i.e. fixing the absoprtion probability, then the time would scale linearly with L. From this argument, we can see that absorption time will scale linearly with L.  
+This could be rearranged to
+
+$$t = \frac{1-L}{2}(ln(1-(\frac{\sigma}{L})^2\frac{1}{x-x^2}))$$
+
+If the absorption time is entirely determined by the value of $\frac{\sigma}{L}$, given $x$, then when considering the expected absoption time for a given value of x, everything in the bracket can be thought of as a function of x, $C(x)$, and we find:
+
+$$E(t_{abs}|x) = \frac{1-L}{2}C(x)$$
+
+The absorption time scales linearly with L. At large L, this will be smooth.
 
 
 \subsection{D}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  26 OCT 2018 17:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  26 OCT 2018 18:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -526,10 +526,10 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 <kingsman_a.png, id=25, 462.528pt x 346.896pt>
 File: kingsman_a.png Graphic file (type png)
 <use kingsman_a.png>
-Package pdftex.def Info: kingsman_a.png  used on input line 179.
+Package pdftex.def Info: kingsman_a.png  used on input line 178.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
-Overfull \hbox (25.02289pt too wide) in paragraph at lines 179--180
+Overfull \hbox (25.02289pt too wide) in paragraph at lines 178--179
 [][] 
  []
 
@@ -537,10 +537,10 @@ Overfull \hbox (25.02289pt too wide) in paragraph at lines 179--180
 <ou_process_a.png, id=37, 1445.4pt x 578.16pt>
 File: ou_process_a.png Graphic file (type png)
 <use ou_process_a.png>
-Package pdftex.def Info: ou_process_a.png  used on input line 266.
+Package pdftex.def Info: ou_process_a.png  used on input line 265.
 (pdftex.def)             Requested size: 361.34912pt x 144.53964pt.
 
-Overfull \hbox (16.34912pt too wide) in paragraph at lines 266--267
+Overfull \hbox (16.34912pt too wide) in paragraph at lines 265--266
 [][] 
  []
 
@@ -548,10 +548,10 @@ Overfull \hbox (16.34912pt too wide) in paragraph at lines 266--267
 <moran_a.png, id=59, 462.528pt x 346.896pt>
 File: moran_a.png Graphic file (type png)
 <use moran_a.png>
-Package pdftex.def Info: moran_a.png  used on input line 507.
+Package pdftex.def Info: moran_a.png  used on input line 515.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
-Overfull \hbox (25.02289pt too wide) in paragraph at lines 507--508
+Overfull \hbox (25.02289pt too wide) in paragraph at lines 515--516
 [][] 
  []
 
@@ -559,10 +559,10 @@ Overfull \hbox (25.02289pt too wide) in paragraph at lines 507--508
 <barabasi_a.png, id=64, 462.528pt x 346.896pt>
 File: barabasi_a.png Graphic file (type png)
 <use barabasi_a.png>
-Package pdftex.def Info: barabasi_a.png  used on input line 519.
+Package pdftex.def Info: barabasi_a.png  used on input line 527.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
-Overfull \hbox (25.02289pt too wide) in paragraph at lines 519--520
+Overfull \hbox (25.02289pt too wide) in paragraph at lines 527--528
 [][] 
  []
 
@@ -570,16 +570,16 @@ Overfull \hbox (25.02289pt too wide) in paragraph at lines 519--520
 <degree_neighbour_a.png, id=69, 361.35pt x 361.35pt>
 File: degree_neighbour_a.png Graphic file (type png)
 <use degree_neighbour_a.png>
-Package pdftex.def Info: degree_neighbour_a.png  used on input line 529.
+Package pdftex.def Info: degree_neighbour_a.png  used on input line 537.
 (pdftex.def)             Requested size: 289.0804pt x 289.0804pt.
  [15 <./barabasi_a.png>]
 <erdos_a.png, id=74, 462.528pt x 346.896pt>
 File: erdos_a.png Graphic file (type png)
 <use erdos_a.png>
-Package pdftex.def Info: erdos_a.png  used on input line 542.
+Package pdftex.def Info: erdos_a.png  used on input line 550.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
-Overfull \hbox (25.02289pt too wide) in paragraph at lines 542--543
+Overfull \hbox (25.02289pt too wide) in paragraph at lines 550--551
 [][] 
  []
 
@@ -587,10 +587,10 @@ Overfull \hbox (25.02289pt too wide) in paragraph at lines 542--543
 <erdos_1000_a.png, id=79, 462.528pt x 346.896pt>
 File: erdos_1000_a.png Graphic file (type png)
 <use erdos_1000_a.png>
-Package pdftex.def Info: erdos_1000_a.png  used on input line 549.
+Package pdftex.def Info: erdos_1000_a.png  used on input line 557.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
-Overfull \hbox (25.02289pt too wide) in paragraph at lines 549--550
+Overfull \hbox (25.02289pt too wide) in paragraph at lines 557--558
 [][] 
  []
 
@@ -598,10 +598,10 @@ Overfull \hbox (25.02289pt too wide) in paragraph at lines 549--550
 <clustering_a.png, id=84, 462.528pt x 346.896pt>
 File: clustering_a.png Graphic file (type png)
 <use clustering_a.png>
-Package pdftex.def Info: clustering_a.png  used on input line 561.
+Package pdftex.def Info: clustering_a.png  used on input line 569.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
-Overfull \hbox (25.02289pt too wide) in paragraph at lines 561--562
+Overfull \hbox (25.02289pt too wide) in paragraph at lines 569--570
 [][] 
  []
 
@@ -609,10 +609,10 @@ Overfull \hbox (25.02289pt too wide) in paragraph at lines 561--562
 <poisson_a.png, id=89, 462.528pt x 346.896pt>
 File: poisson_a.png Graphic file (type png)
 <use poisson_a.png>
-Package pdftex.def Info: poisson_a.png  used on input line 572.
+Package pdftex.def Info: poisson_a.png  used on input line 580.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
-Overfull \hbox (25.02289pt too wide) in paragraph at lines 572--573
+Overfull \hbox (25.02289pt too wide) in paragraph at lines 580--581
 [][] 
  []
 
@@ -639,7 +639,7 @@ pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on assignment_2.pdf (20 pages, 509559 bytes).
+Output written on assignment_2.pdf (20 pages, 510588 bytes).
 PDF statistics:
  144 PDF objects out of 1000 (max. 8388607)
  89 compressed objects within 1 object stream
