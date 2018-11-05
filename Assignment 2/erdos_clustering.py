@@ -21,7 +21,7 @@ def average_clustering_coefficient():
 
 	average_CC = np.mean(CC, axis = 1)
 
-	plt.plot(z, average_CC, "o")
+	plt.plot(z, average_CC, "1")
 	plt.ylabel("Expected clustering coef", fontsize = 16)
 	plt.xlabel("z", fontsize = 16)
 

@@ -21,23 +21,19 @@
 
 \subsection{A}
 
-$N_t$ is the number of particles at time t with $N_0=L$. The process $(N_t : t \geq 0)$ has the state space $\{1,...,L\}$
+$N_t$ is the number of particles at time t with $N_0=L$. The process $(N_t : t \geq 0)$ has the state space $S = \{1,...,L\}$
 
 \subsubsection{Transition Rate of the process}
 
-$$r(n,n-1) = {L\choose 2} \, , \, n \geq 2$$
+Assuming events happen one at a time, there is only one transition posisble, which is to go from $n$ particles to $n-1$ particles. 
 
-QUESTION - WHAT ABOUT SAME STATE?
-$r(n,n) = $
-
-QUESTION - WHAT ABOUT OTHER STATES - HOW TO WRITE IT?
-$r(n, y) = \, , \, y \neq n,n-1$
+$$r(n,n-1) = {n\choose 2} \, , \, n \geq 2$$
 
 \subsubsection{Generator}
 
-This is a jump process, so the generator is
+The generator is
 
-$$(\mathcal{L}f)(x) = \int_{\Re} r(x,y)[f(y)-f(x)]dy$$
+$$(\mathcal{L}f)(x) = \sum_{y \neq x , y \in S} r(x,y)[f(y)-f(x)] \quad x \in S$$
 
 For this process
 
@@ -52,11 +48,6 @@ The master equation is
 $$\frac{d}{dt} \pi_t(n) = \pi_t(n+1)r(n+1,n) - \pi_t(n)r(n,n-1)$$
 
 $$\frac{d}{dt} \pi_t(n) = \pi_t(n+1){n+1\choose 2} - \pi_t(n) {n \choose 2}$$
-
-QUESTION - IS THIS RIGHT?
-QUESTION - IS THE NOTATION OKAY?
-QUESTION - WHAT ABOUT EDGES? 
-
 
 \subsubsection{Ergodicity}
 
@@ -112,9 +103,9 @@ $$(\mathcal{L}^Lf)(n/L) = \frac{1}{L} {n\choose2} (f(\frac{n-1}{L}) - f(\frac{n}
 
 Taylor expand and let $x=\frac{n}{L}$:
 
-$$(\mathcal{L}^Lf)(x) = \frac{1}{L}\frac{n(n-1)}{2} (f(x) - \frac{1}{L}f'(x) + \frac{1}{L^2}f''(x) + O(\frac{1}{L^3}) - f(x))$$
+$$(\mathcal{L}^Lf)(x) = \frac{1}{L}\frac{Lx(Lx-1)}{2} (f(x) - \frac{1}{L}f'(x) + \frac{1}{L^2}f''(x) + O(\frac{1}{L^3}) - f(x))$$
 
-Cancel terms, substitute $n=Lx$ and rearrange
+Cancel terms, and rearrange
 
 $$(\mathcal{L}^Lf)(x) = (\frac{x^2}{2} - \frac{x}{2L})(- f'(x) + \frac{1}{L}f''(x) + O(\frac{1}{L^2}))$$
 
@@ -243,9 +234,13 @@ $$ v(t) = \frac{\sigma^2}{2 \alpha}(1-e^{-2 \alpha t})$$
 
 As a Gaussian process, the distribution is fully described by the mean and variance.
 
-$$f(X_t) = \dfrac{1}{\sqrt{\frac{2 \pi \sigma^2 (1-e^{-2 \alpha t})}{2 \alpha}}}exp(\frac{- \alpha (x - x_0 e^{- \alpha t})^2}{\sigma^2 (1-e^{-2 \alpha t})}$$
+$$f(X_t) \sim \mathcal{N}(m(t), v(t))$$
 
-IS THAT RIGHT?
+with
+
+$$m(t) = x_0 e^{-\alpha t}$$
+$$ v(t) = \frac{\sigma^2}{2 \alpha}(1-e^{-2 \alpha t})$$
+
 
 \subsubsection{Stationary Distribution}
 
@@ -256,8 +251,6 @@ $$\lim_{t \to \infty} m(t) = 0$$
 $$\lim_{t \to \infty} v(t) = \frac{\sigma^2}{2 \alpha}$$
 
 The stationary distribution is $\sim N(0,\frac{\sigma^2}{2 \alpha})$ 
-
-$$f_0(X_t) = \dfrac{1}{\sqrt{\frac{\pi \sigma^2}{\alpha}}}exp(\frac{- \alpha x^2}{\sigma^2})$$
 
 \subsection{Simulation}
 
@@ -282,10 +275,6 @@ $$T = \{1,2,...,L\}$$
 Each of the L individuals can have any of those types, so the state space is 
 
 $$S = \{1,2,3,...,L\}^L$$
-
-ADDIN SUM OF N_T HAS TO SUM TO N.
-
-ADD IN BIT INTRODUCING PROCESS ETC
 
 \subsubsection{Irreducibility}
 
@@ -313,9 +302,9 @@ $N_t : t \geq 0$ is a Markov process. It's future distribution is determined onl
 
 \subsubsection{State space}
 
-Each type can have any integer between 0 and L types, and there are L types, so the state space is 
+The number of individuals, $N_t$, of a given type, $k$, has the state space
 
-$$S = \{0,1,2,...,L\}^L$$
+$$S = \{0,1,2,...,L\}$$
 
 \subsubsection{Generator}
 
@@ -327,35 +316,25 @@ $$r(n,n-1) = \frac{n(L-n)}{L-1}$$
 
 These are symmetrical. 
 
-
-This is a jump process, so the generator is
-
-$$(\mathcal{L}f)(x) = \int_{\Re} r(x,y)[f(y)-f(x)]dy$$
-
-For this process
+The generator for this process is 
 
 $$(\mathcal{L}f)(n) = r(n,n-1)(f(n-1)-f(n)) + r(n,n+1)(f(n+1)-f(n))$$
 
 $$(\mathcal{L}f)(n) = \frac{(L-n)n}{L-1}(f(n-1) + f(n+1) - 2f(n))$$
 
-
-
-
 \subsubsection{Irreducibility}
 
 The process is not irreducible because there are absorbing states. 
 
-\subsubsection{Stationary dsitributions}
+\subsubsection{Stationary distributions}
 
-The absorbing states are where one type has $N_k = L$ and the rest $N_k=0$. i.e
+The absorbing states are either $N_k = L$ or $N_k=0$.
 
-$$ \pi_k(y) = \delta_{y,k} = \begin{cases}
-L \quad , \quad y=k\\
-0 \quad , \quad \text{otherwise}\\
-\end{cases}$$
+The stationary distributions are any linear combination of the absorbing states that sum to 1, so in vector form:
 
-?? IS THAT RIGHT? 
- 
+$$\pi_0 = [\alpha,0,...,0,1-\alpha] \quad \alpha \in [0,1]$$
+
+
 \subsubsection{Limiting distribution}
 
 As $t \to \infty$ with initial condition $N_0 = 1$. By symmetry each type has the same chance of "winning", therefore the limiting distribution is
@@ -418,7 +397,7 @@ $$Var(N_t) = n^2e^{\frac{-2t}{L-1}} + Ln(1-ne^{\frac{-2t}{L-1}}) - n^2$$
 
 $$Var(N_t) = (Ln - n^2)(1- e^{\frac{-2t}{L-1}})$$
 
-The standard deviation grows with time. As the standard deviation grows, it becomes more and more likely that the process will be absorbed. 
+The standard deviation grows with time. As the standard deviation grows, it becomes more and more likely that the process will be absorbed.
 
 Let $x = \frac{n}{L}$
 
@@ -428,17 +407,13 @@ $$\sigma(N_t) = L (x -x^2)^{\frac{1}{2}}(1- e^{\frac{-2t}{L-1}})^{\frac{1}{2}}$$
 
 $$\frac{\sigma(N_t)}{L} = (x -x^2)^{\frac{1}{2}}(1- e^{\frac{-2t}{L-1}})^{\frac{1}{2}}$$
 
-The ratio $\frac{\sigma}{L}$ can be thought of as a proxy for the absorption probability. For different L, equal values of $\frac{\sigma}{L}$ will have very similar absorption probability distributions in x. 
+Given an initial position $x=\frac{n}{L}$, the ratio $\frac{\sigma}{L}$ can be thought of as a proxy for the absorption probability. For different L, equal values of $\frac{\sigma}{L}$ will have very similar absorption probability distributions in x. 
 
 This could be rearranged to
 
 $$t = \frac{1-L}{2}(ln(1-(\frac{\sigma}{L})^2\frac{1}{x-x^2}))$$
 
-If the absorption time is entirely determined by the value of $\frac{\sigma}{L}$, given $x$, then when considering the expected absoption time for a given value of x, everything in the bracket can be thought of as a function of x, $C(x)$, and we find:
-
-$$E(t_{abs}|x) = \frac{1-L}{2}C(x)$$
-
-The absorption time scales linearly with L. At large L, this will be smooth.
+For a given value of $\frac{\sigma}{L}$ and a given start position, $x=\frac{n}{L}$, the asborption time scales linearly with $L$. At large L, this will be smooth.
 
 
 \subsection{D}
@@ -470,8 +445,6 @@ $$(\mathcal{L}^Lf)(x) = x(1 - x)f''(x)$$
 \subsubsection{Fokker-Planck Equation}
 
 $$\frac{\partial}{\partial t}p_t(x,y) = \frac{\partial^2}{\partial y^2} (y(1-y) p_t(x,y)$$
-
-WHAT DOES THIS MEAN?
 
 \subsection{E}
 
@@ -525,15 +498,25 @@ Figure \ref{fig:moran} shows a simulation of the Moran model process. The number
 
 \section{Barabasi-Albert}
 
+
+\subsection{Degree distribution}
+
+\begin{figure}[H]
+\includegraphics[scale=0.8]{barabasi_deg_dist_a.png} 
+\caption{The Barabasi-Albert preferential attachment model simulated starting with 5 nodes and each new node attaching to 5 existing nodes. N = 1000 nodes. The empirical degree distribution is shown for 1 realisation and 20 realisations. The degree distribution fits closely to a power law with $\alpha=-3$.} 
+\label{fig:barabasi}
+\end{figure}
+
+
 \subsection{Tail of degree distribution}
 
 \begin{figure}[H]
 \includegraphics[scale=0.8]{barabasi_a.png} 
 \caption{The Barabasi-Albert preferential attachment model simulated starting with 5 nodes and each new node attaching to 5 existing nodes. N = 1000 nodes. 1 - Probability Density Function is shown, estimated empircally for 1 realisation and 20 realisations. The tail fits closely to a power law with $\alpha=-2$.} 
-\label{fig:barabasi}
+\label{fig:barabasi_tail}
 \end{figure}
 
-Figure \ref{fig:barabasi} shows a simulation of the Barabasi-Albert model. The emprical tail fits closely to a power law with $\alpha = -2$.
+Figure \ref{fig:barabasi} shows the empirical degree distribution for the Barabasi-Albert model, with a reasonable fit for a power law with $\alpha=-3$. Figure \ref{fig:barabasi_tail} shows the emprical tail of the simulated model. The empirical tail, $1-PDF$, involves an integration of the probability distribution, so the power law exponent increases by 1, and is fit closely to a power law with $\alpha = -2$.
 
 \subsection{Distribution of degree of nearest neighbour}
 

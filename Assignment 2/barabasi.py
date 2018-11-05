@@ -148,7 +148,7 @@ def plot_20_degree_distributions():
 	# 1	
 	degree_counter = get_deg_dist_once_counter()
 	degree, count = zip(*degree_counter.items())
-	plt.scatter(degree, np.array(count)/sum(count), color="green", label="1 realisation")
+	plt.scatter(degree, np.array(count)/sum(count), marker=".", label="1 realisation")
 
 	# 20
 	degree_counter_20 = get_deg_dist_times(20)
@@ -157,11 +157,11 @@ def plot_20_degree_distributions():
 	
 	degree_20 = np.array(deg_data_20)
 	count_20 = np.array(count_data_20)
-	plt.scatter(degree_20, count_20/sum(count_20), color="yellow", label="20 realisations")
+	plt.scatter(degree_20, count_20/sum(count_20), marker=".", label="20 realisations")
 
 	# Theoretical
 	theoretical = np.array([d**-3 for d in deg_data_20])
-	plt.plot(degree_20, theoretical/sum(theoretical), color="red", label=r"Power law $\alpha=-3$")
+	plt.plot(degree_20, theoretical/sum(theoretical), color="green", label=r"Power law $\alpha=-3$")
 
 
 	#Do the cumulative tail - it is easier to work with. 
@@ -179,8 +179,12 @@ def plot_20_degree_distributions():
 
 	plt.legend()
 
+	plt.savefig('barabasi_deg_dist.png')
 	plt.show()
 
+
+
+plot_20_degree_distributions()
 
 
 def toy_graph():
